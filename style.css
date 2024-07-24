@@ -38,7 +38,34 @@ select-button {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
   transition-duration: 0.05s;
-
+}
 .infoPanel {
   font-size: 22px;
+}
+.Table{
+  background-color: #008CBA;
+}
+.TableRow {
+  font-size: 13px;
+  background-color: #008CBA;
+  color: #008CBA;
+}
+.TableLine {
+  font-size: 15px;
+  background-color: #414141;
+  color: #ececec;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 18px 8px;
+}
+.TableLine:hover {
+  font-size: 18px;
+  background-color: #15143b;
+  color: #ececec;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 18px 8px;
+  transform: translateY(4px);
+  transition-duration: 0.05s;
+
 }
