@@ -41,6 +41,7 @@ select-button {
 }
 .infoPanel {
   font-size: 22px;
+  align-self: center;
 }
 .Table{
   background-color: #008CBA;
@@ -68,4 +69,21 @@ select-button {
   transform: translateY(4px);
   transition-duration: 0.05s;
 
+}
+
+.TableCP{
+  background-color: #15143b;
+  align-self: center;
+  text-align: center;
+  padding: auto;
+  width: 50%;
+  height: 50%;
+}
+
+.CalcUI{
+  background-color: #15143b;
+  border: 15px solid green;
+  color: #ececec;
+  text-align: center;
+  align-content: center;
 }

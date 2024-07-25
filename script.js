@@ -177,6 +177,7 @@ function calculadoraRender(){
 //Faz o Render da calculadora de Psyon
 function calculadoraPsyonRender(){
 	let table = document.getElementById("table");
+	table.className = ("TableCP");
 
 	let calcUI = document.createElement('calcUI');
 	calcUI.className = "CalcUI";
@@ -279,7 +280,7 @@ function CalcularVida(_nivel, _vidaClasse, _resistencia){
 function CalcularPsyon(_nivel, _psyonClasse, _inteligencia){
 	let resultado;
 
-	resultado = Math.floor((((Number(_psyonClasse)+(Number(_inteligencia))*(Number(_nivel))/2))));
+	resultado = Math.floor(((Number(_psyonClasse)+Number(_inteligencia))*Number(_nivel))/2);
 
 	return resultado;
 }
