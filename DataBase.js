@@ -1,5 +1,12 @@
 const HabilidadeDB = [
   {
+    Habilidade: "Habilidade",
+    Custo: "Custo",
+    Descrição: "Descrição",
+    Formula: "Formula",
+    Tipo: "Tipo"
+  },
+  {
     Habilidade: "Pele de Pedra",
     Custo: "1",
     Descrição: "Faz com que sua Pele ou Armadura fique dura como uma pedra por 2 turnos +1 Armadura + Resistência.",
@@ -7,7 +14,7 @@ const HabilidadeDB = [
     Tipo: "Buff"
   },
   {
-    Habilidade: "Boosto",
+    Habilidade: "Boost",
     Custo: "3",
     Descrição: "Melhora por 2 turnos um Status base de outra pessoa em 1 + Inteligencia.",
     Formula: "+1 + Inteligencia",
@@ -42,7 +49,7 @@ const HabilidadeDB = [
     Tipo: "Sup"
   },
   {
-    Habilidade: "Reparos Menores",
+    Habilidade: "Reparos menores",
     Custo: "1",
     Descrição: "Faz pequenos reparos em armas, armaduras e itens eletromecânicos sem a necessidade de materiais e ferramentas restaurando valor da formula.",
     Formula: "2d4 + Inteligencia ou 1d6 + Destreza",
