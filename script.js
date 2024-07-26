@@ -1,11 +1,13 @@
-import {HabilidadeDB} from './DataBase.js'
+import {HabilidadeDB, ItensDB} from './DataBase.js'
 const DB_H = HabilidadeDB;
+const DB_I = ItensDB;
 
 function getFullInfo(item) {
 	return [item.Habilidade, item.Custo, item.Descrição, item.Formula, item.Tipo].join(' ');
 }  
 
 const HabButton = document.getElementById("Bhabi");
+const ItemButton = document.getElementById("BItem");
 const VCalcButton = document.getElementById("Bvcalc");
 const PCalcButton = document.getElementById("Bpcalc");
 
@@ -17,7 +19,14 @@ HabButton.addEventListener("click", () => {
 
 	  //document.getElementById("table").innerHTML = ""+Render();
 	  ClearRender();
-	  Render();
+	  Render(DB_H,"habilidades");
+});
+
+ItemButton.addEventListener("click", () => {
+	console.log("Itens");
+
+	  ClearRender();
+	  Render(DB_I,"itens");
 });
 
 VCalcButton.addEventListener("click", () => {
@@ -37,42 +46,87 @@ PCalcButton.addEventListener("click", () => {
 
 
 //Faz o Render da tabela de informações
-function Render(){
+function Render(_dados,_bancoTipo){
 	let resultado = "";
 	let table = document.getElementById("table");
 	table.className = ("Table");
 
-	for(let element of DB_H){
-		let tr = document.createElement('tr');
-		tr.className = "TableRow";
-	
-		let td1 = document.createElement('td');
-		td1.textContent = element.Habilidade;
-		td1.className = "TableLine";
-		tr.appendChild(td1);
-	
-		let td2 = document.createElement('td');
-		td2.textContent = element.Custo;
-		td2.className = "TableLine";
-		tr.appendChild(td2);
-	
-		let td3 = document.createElement('td');
-		td3.textContent = element.Descrição;
-		td3.className = "TableLine";
-		tr.appendChild(td3);
+	try {
 
-		let td4 = document.createElement('td');
-		td4.textContent = element.Formula;
-		td4.className = "TableLine";
-		tr.appendChild(td4);
+		//tipos de bancos de dados
+		//habilidades, classes, itens, especies;
+		if(_bancoTipo=="habilidades"){
+			for(let element of _dados){
+				let tr = document.createElement('tr');
+				tr.className = "TableRow";
+			
+				let td1 = document.createElement('td');
+				td1.textContent = element.Habilidade;
+				td1.className = "TableLine";
+				tr.appendChild(td1);
+			
+				let td2 = document.createElement('td');
+				td2.textContent = element.Custo;
+				td2.className = "TableLine";
+				tr.appendChild(td2);
+			
+				let td3 = document.createElement('td');
+				td3.textContent = element.Descrição;
+				td3.className = "TableLine";
+				tr.appendChild(td3);
+		
+				let td4 = document.createElement('td');
+				td4.textContent = element.Formula;
+				td4.className = "TableLine";
+				tr.appendChild(td4);
+		
+				let td5 = document.createElement('td');
+				td5.textContent = element.Tipo;
+				td5.className = "TableLine";
+				tr.appendChild(td5);
+			
+				table.appendChild(tr);
+			};
+		}
+		if(_bancoTipo=="itens"){
+			for(let element of _dados){
+				let tr = document.createElement('tr');
+				tr.className = "TableRow";
+			
+				let td1 = document.createElement('td');
+				td1.textContent = element.Item;
+				td1.className = "TableLine";
+				tr.appendChild(td1);
+			
+				let td2 = document.createElement('td');
+				td2.textContent = element.Tipo;
+				td2.className = "TableLine";
+				tr.appendChild(td2);
+			
+				let td3 = document.createElement('td');
+				td3.textContent = element.Preço;
+				td3.className = "TableLine";
+				tr.appendChild(td3);
+		
+				let td4 = document.createElement('td');
+				td4.textContent = element.Atributos;
+				td4.className = "TableLine";
+				tr.appendChild(td4);
+		
+				let td5 = document.createElement('td');
+				td5.textContent = element.Descrição;
+				td5.className = "TableLine";
+				tr.appendChild(td5);
+			
+				table.appendChild(tr);
+			};
+		}
 
-		let td5 = document.createElement('td');
-		td5.textContent = element.Tipo;
-		td5.className = "TableLine";
-		tr.appendChild(td5);
+	} catch (error) {
+		console.log(error);
+	}
+
 	
-		table.appendChild(tr);
-	};
 
 	return resultado;
 }

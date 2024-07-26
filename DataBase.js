@@ -284,8 +284,109 @@ const HabilidadeDB = [
     Custo: "2",
     Descrição: "Um gás azul que é solto em um raio de 10 metros que faz o que entrar em contato dormir não podendo fazer ações por 1d4 turnos.",
     Formula: "Teste 1d20 + Resistência",
-    Tipo: "pdf "
+    Tipo: "Debuff"
   }
 ];
 
-export{HabilidadeDB};
+const ItensDB = [
+  {
+    Item: "Item",
+    Tipo: "Tipo",
+    Preço: "Preço",
+    Atributos: "Atributos",
+    Descrição: "Descrição"
+  },
+  {
+    Item: "Armadura Pesada de Cadete",
+    Tipo: "Armadura",
+    Preço: "$50",
+    Atributos: "[+1 Armadura]",
+    Descrição: "Armadura Pesada basica feita para novos recrutas."
+  },
+  {
+    Item: "Armadura Media de Cadete",
+    Tipo: "Armadura",
+    Preço: "$50",
+    Atributos: "[+1 Armadura]",
+    Descrição: "Armadura basica feita para novos recrutas."
+  },
+  {
+    Item: "Armadura Leve de Cadete",
+    Tipo: "Armadura",
+    Preço: "$50",
+    Atributos: "[+1 Armadura]",
+    Descrição: "Armadura Leve basica feita para novos recrutas."
+  },
+  {
+    Item: "Escopeta AT-07",
+    Tipo: "Arma",
+    Preço: "$40",
+    Atributos: "[Dano 3d4], [Distância 10 Metros]",
+    Descrição: "Uma escopeta barata e de facil uso. "
+  },
+  {
+    Item: "Pistola B-03",
+    Tipo: "Arma",
+    Preço: "$40",
+    Atributos: "[Dano 1d4 + 1], [Distancia 20 Metros]",
+    Descrição: "Uma pistola simples e barata."
+  },
+  {
+    Item: "Rifle de caça A-02",
+    Tipo: "Arma",
+    Preço: "$60",
+    Atributos: "[Dano 1d10], [Distância 10-30 Metros]",
+    Descrição: "Antigo rifle de caça criado a 7 decadas atrás."
+  },
+  {
+    Item: "Faca de Sobrevivência",
+    Tipo: "Faca",
+    Preço: "$15",
+    Atributos: "[Dano 1d4]",
+    Descrição: "Faca dada a novos recrutas."
+  },
+  {
+    Item: "Espada Curta de Bronze",
+    Tipo: "Espada",
+    Preço: "$25",
+    Atributos: "[Dano 1d6]",
+    Descrição: "Espada Leve feita de bronze."
+  },
+  {
+    Item: "Espada Longa de bronze",
+    Tipo: "Espada",
+    Preço: "$25",
+    Atributos: "[Dano 1d10]",
+    Descrição: "Espada Comum feita de bronze."
+  },
+  {
+    Item: "Canhão de ombro TX-MK1",
+    Tipo: "Canhão",
+    Preço: "$65",
+    Atributos: "[Dano 1d8], [Distância 15 Metros], [Recarga 2 turnos]",
+    Descrição: "Canhão de ombro barato mas pouco potente."
+  },
+  {
+    Item: "Analgésicos",
+    Tipo: "Item",
+    Preço: "$5",
+    Atributos: "[cura 2d4 se ingerido]",
+    Descrição: "Comprimidos usados para aliviar a dor."
+  },
+  {
+    Item: "Granadas de Flash",
+    Tipo: "Item",
+    Preço: "$25",
+    Atributos: "[10 Metros de raio], [tempo de cegueira 1d4 turnos]",
+    Descrição: "Cega temporariamente quem está próximo 10 Metros de raio, tempo de cegueira 1d4 turnos."
+  },
+  {
+    Item: "Scanner",
+    Tipo: "Equipamento",
+    Preço: "$70",
+    Atributos: "",
+    Descrição: "Usado para escanear objetos e entidades."
+  }
+]
+
+export{HabilidadeDB, ItensDB};
