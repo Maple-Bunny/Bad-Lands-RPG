@@ -41,49 +41,145 @@ select-button {
 }
 .infoPanel {
   font-size: 22px;
-  align-self: center;
+ 
 }
 .Table{
-  background-color: #008CBA;
+  background-color: #ffb618;
+  border-radius: 15px;
+  border: 4px solid #000000;
 }
 .TableRow {
-  font-size: 13px;
-  background-color: #008CBA;
-  color: #008CBA;
+  font-size: 20px;
+  background-color: #58a1b9;
+  color: #fcfdfd;
+  font-weight: bolder;
 }
+
+
+.TableRow:hover {
+  font-size: 20px;
+  background-color: #15143b;
+  color: #ececec;
+  border-radius: 12px;
+  transition-duration: 0.05s;
+
+}
+
 .TableLine {
-  font-size: 15px;
-  background-color: #414141;
   color: #ececec;
   font-weight: bold;
   border-radius: 12px;
   padding: 18px 8px;
 }
 .TableLine:hover {
-  font-size: 18px;
-  background-color: #15143b;
-  color: #ececec;
+  background-color: #e04102;
+  color: #0a0a0a;
   font-weight: bold;
   border-radius: 12px;
+  border: 4px solid #d3d3d3;
   padding: 18px 8px;
   transform: translateY(4px);
   transition-duration: 0.05s;
 
 }
 
+
 .TableCP{
   background-color: #15143b;
   align-self: center;
   text-align: center;
-  padding: auto;
+  padding: 8px;
   width: 50%;
   height: 50%;
+  border-radius: 4px;
+  display: inline-block;
+  
 }
 
 .CalcUI{
-  background-color: #15143b;
-  border: 15px solid green;
-  color: #ececec;
+  background-color: #0063f7;
+  border: 8px solid #186ad4;
+  color: #d3d3d3;
+  font-weight: bolder;
+  border-radius: 20px;
+  display: inline-block;
+
+}
+
+.CalcIn{
+  background-color: #1e2125;
+  padding: 12px;
+  size: 16px;
   text-align: center;
-  align-content: center;
+  font-weight: bolder;
+  border-radius: 8px;
+  border: 2px solid #000000;
+  margin: 4px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+
+}
+
+input[class=CalcIn]{
+  color: #d9ff00;
+  font-weight: bolder;
+}
+
+input[class=CalcIn]:hover{
+  color: #d9ff00;
+  font-weight: bolder;
+  border: 2px solid #d3d3d3;
+}
+
+input[class=CalcIn]:active{
+  background-color: #d9ff00;
+  color: #000000;
+  font-weight: bolder;
+  border: 2px solid #d3d3d3;
+}
+
+.CalcB{
+  background-color: #fffb02; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  padding: 8px 8px;
+  text-align: center;
+  border-radius: 6px;
+  border: 2px solid #000000;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  transition-duration: 0.4s;
+  margin: 3px;
+}
+.CalcB:hover{
+  background-color: #ff5f02; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  padding: 8px 8px;
+  text-align: center;
+  border-radius: 6px;
+  border: 2px solid #000000;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  transform: translateY(-6px);
+  transition-duration: 0.4s;
+}
+.CalcB:active{
+  background-color: #070707; /* Green */
+  border: none;
+  color: #ececec;
+  font-weight: bolder;
+  padding: 8px 8px;
+  text-align: center;
+  border-radius: 6px;
+  border: 2px solid #e7e7e7;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  transform: translateY(4px);
+  transition-duration: 0.05s;
 }

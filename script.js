@@ -40,6 +40,7 @@ PCalcButton.addEventListener("click", () => {
 function Render(){
 	let resultado = "";
 	let table = document.getElementById("table");
+	table.className = ("Table");
 
 	for(let element of DB_H){
 		let tr = document.createElement('tr');
@@ -86,6 +87,7 @@ function ClearRender(){
 //Faz o Render da calculadora de vida
 function calculadoraRender(){
 	let table = document.getElementById("table");
+	table.className = ("TableCP");
 
 	let calcUI = document.createElement('calcUI');
 	calcUI.className = "CalcUI";
@@ -130,22 +132,21 @@ function calculadoraRender(){
 	let ci3P = document.createElement('p');
 	calcUI.appendChild(ci3P);
 
-	let cOText = document.createElement('ci1Text');
-	cOText.innerText = "Resultado";
-	cOText.className = "CalcIn";
-	calcUI.appendChild(cOText);
-	let cO = document.createElement('Output');
-	cO.setAttribute("type", "number");
-	cO.className = "CalcIn";
-	calcUI.appendChild(cO);
-	let cOP = document.createElement('p');
-	calcUI.appendChild(cOP);
-
 	let calculateB = document.createElement("button");
 	calculateB.className = "CalcB";
 	calculateB.innerText = "Calcular";
 	calculateB.id = "CalcB";
 	calcUI.appendChild(calculateB);
+
+	let cOP = document.createElement('p');
+	calcUI.appendChild(cOP);
+
+	let cOText = document.createElement('ci1Text');
+	cOText.innerText = "Resultado";
+	cOText.className = "CalcIn";
+	calcUI.appendChild(cOText);
+	
+	
 	let cO2P = document.createElement('p');
 	cO2P.className = "ResultTex";
 	cO2P.id = "CalcOut1";
@@ -222,28 +223,32 @@ function calculadoraPsyonRender(){
 	let ci3P = document.createElement('p');
 	calcUI.appendChild(ci3P);
 
-	let cOText = document.createElement('ci1Text');
-	cOText.innerText = "Resultado";
-	cOText.className = "CalcIn";
-	calcUI.appendChild(cOText);
-	let cO = document.createElement('Output');
-	cO.setAttribute("type", "number");
-	cO.className = "CalcIn";
-	calcUI.appendChild(cO);
-	let cOP = document.createElement('p');
-	calcUI.appendChild(cOP);
+	
 
 	let calculateB = document.createElement("button");
 	calculateB.className = "CalcB";
 	calculateB.innerText = "Calcular";
 	calculateB.id = "CalcB";
 	calcUI.appendChild(calculateB);
+
+	let cOP = document.createElement('p');
+	calcUI.appendChild(cOP);
+	let cOText = document.createElement('ci1Text');
+	cOText.innerText = "Resultado";
+	cOText.className = "CalcIn";
+	calcUI.appendChild(cOText);
+	
+	
+
+
 	let cO2P = document.createElement('p');
 	cO2P.className = "ResultTex";
 	cO2P.id = "CalcOut1";
 	cO2P.innerText = "";
 	calcUI.appendChild(cO2P);
 
+
+	
 
 
 	table.appendChild(calcUI);
