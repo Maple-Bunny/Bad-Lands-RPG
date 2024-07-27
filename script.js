@@ -1,6 +1,8 @@
-import {HabilidadeDB, ItensDB} from './DataBase.js'
+import {HabilidadeDB, ItensDB, ClassDB, EspeciesDB} from './DataBase.js'
 const DB_H = HabilidadeDB;
 const DB_I = ItensDB;
+const DB_C = ClassDB;
+const DB_E = EspeciesDB;
 
 function getFullInfo(item) {
 	return [item.Habilidade, item.Custo, item.Descrição, item.Formula, item.Tipo].join(' ');
@@ -8,11 +10,13 @@ function getFullInfo(item) {
 
 const HabButton = document.getElementById("Bhabi");
 const ItemButton = document.getElementById("BItem");
+const ClassButton = document.getElementById("Bclass");
+const EspeButton = document.getElementById("Besp");
 const VCalcButton = document.getElementById("Bvcalc");
 const PCalcButton = document.getElementById("Bpcalc");
 
 HabButton.addEventListener("click", () => {
-	console.log(DB_H);
+	console.log("habilidades");
 	/*document.getElementById("IPanel").innerHTML = DB_H.map((habilidade) => {
 		return `<li>${ getFullInfo(habilidade) }</li>`;
 	  }).join('');*/
@@ -27,6 +31,20 @@ ItemButton.addEventListener("click", () => {
 
 	  ClearRender();
 	  Render(DB_I,"itens");
+});
+
+ClassButton.addEventListener("click", () => {
+	console.log("Classes");
+
+	  ClearRender();
+	  Render(DB_C,"classes");
+});
+
+EspeButton.addEventListener("click", () => {
+	console.log("especies");
+
+	  ClearRender();
+	  Render(DB_E,"especies");
 });
 
 VCalcButton.addEventListener("click", () => {
@@ -115,6 +133,72 @@ function Render(_dados,_bancoTipo){
 		
 				let td5 = document.createElement('td');
 				td5.textContent = element.Descrição;
+				td5.className = "TableLine";
+				tr.appendChild(td5);
+			
+				table.appendChild(tr);
+			};
+		}
+		if(_bancoTipo=="classes"){
+			for(let element of _dados){
+				let tr = document.createElement('tr');
+				tr.className = "TableRow";
+			
+				let td1 = document.createElement('td');
+				td1.textContent = element.Classe;
+				td1.className = "TableLine";
+				tr.appendChild(td1);
+			
+				let td2 = document.createElement('td');
+				td2.textContent = element.Status;
+				td2.className = "TableLine";
+				tr.appendChild(td2);
+			
+				let td3 = document.createElement('td');
+				td3.textContent = element.Descrição;
+				td3.className = "TableLine";
+				tr.appendChild(td3);
+		
+				let td4 = document.createElement('td');
+				td4.textContent = element.Itens_Iniciais;
+				td4.className = "TableLine";
+				tr.appendChild(td4);
+		
+				let td5 = document.createElement('td');
+				td5.textContent = element.Habilidades_por_Nivel;
+				td5.className = "TableLine";
+				tr.appendChild(td5);
+			
+				table.appendChild(tr);
+			};
+		}
+		if(_bancoTipo=="especies"){
+			for(let element of _dados){
+				let tr = document.createElement('tr');
+				tr.className = "TableRow";
+			
+				let td1 = document.createElement('td');
+				td1.textContent = element.Espécie;
+				td1.className = "TableLine";
+				tr.appendChild(td1);
+			
+				let td2 = document.createElement('td');
+				td2.textContent = element.Status;
+				td2.className = "TableLine";
+				tr.appendChild(td2);
+			
+				let td3 = document.createElement('td');
+				td3.textContent = element.Descrição;
+				td3.className = "TableLine";
+				tr.appendChild(td3);
+		
+				let td4 = document.createElement('td');
+				td4.textContent = element.Massa;
+				td4.className = "TableLine";
+				tr.appendChild(td4);
+		
+				let td5 = document.createElement('td');
+				td5.textContent = element.Altura;
 				td5.className = "TableLine";
 				tr.appendChild(td5);
 			

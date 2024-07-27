@@ -1,36 +1,68 @@
 body {
   margin: 20px;
   text-align: center;
+  background-color: #252525;
+  color: #ffffff;
+  font-weight: bolder;
 }
 
 select-button {
-  background-color: #ffbc05; /* Green */
-  border: none;
+  background-color: #252525; /* Green */
+  backdrop-filter: transparent;
+  border: 6px solid #ffe600;
+  border-radius: 1px;
   color: white;
   padding: 32px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 22px;
+  
+  background: linear-gradient(to Top, #05ffc1, #21e5ff), no-repeat center;
+  background-size: cover;
+  background-size: 97% 97%;
+  mask-image: url(./images/bi_1.png);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 99% 99%;
+  mask-clip: url(./images/bi_1i2.png);
+  
 }
 .SelectButton {
   float: left;
+  background-blend-mode: normal;
+  
   background-color: #008CBA; /* Green */
+
+  background-size: cover;
+  background-size: 100% 100%;
+  mask-image: url(./images/bi_11.png);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 99% 99%;
+  mask-clip: url(./images/bi_1i2.png);
+
   border: none;
   color: white;
   padding: 8px 8px;
   text-align: center;
-  border-radius: 6px;
-  border: 2px solid #000000;
+  border-radius: 0px;
+  border: 2px solid #81f5e1;
   text-decoration: none;
   display: inline-block;
   font-size: 22px;
   transition-duration: 0.4s;
 }
+
 .SelectButton:hover {
   background-color: #ff3f05; /* Green */
   color: white;
-  box-shadow: 0 5px #666;
+
+  border: 2px solid #f5ff65;
+  mask-size: 99% 99%;
+  mask-clip: url(./images/bi_1i2.png);
+
+  box-shadow: 0 8px #272626;
   transform: translateY(-7px);
 }
 .SelectButton:active {
@@ -44,38 +76,45 @@ select-button {
  
 }
 .Table{
-  background-color: #ffb618;
+  background-color: #ff4c96;
   border-radius: 15px;
   border: 4px solid #000000;
 }
 .TableRow {
   font-size: 20px;
-  background-color: #58a1b9;
-  color: #fcfdfd;
+  color: #0c0c0c;
   font-weight: bolder;
+  background-color: #58a1b9;
+  background: linear-gradient(to Top, #31eee4, #00ffbf), no-repeat center;
+
 }
 
 
 .TableRow:hover {
   font-size: 20px;
   background-color: #15143b;
+  background: linear-gradient(to Top, #15143b, #361d57), no-repeat center;
+
   color: #ececec;
-  border-radius: 12px;
+  border-radius: 22px;
   transition-duration: 0.05s;
+  padding: 16px 4px;
 
 }
 
 .TableLine {
-  color: #ececec;
-  font-weight: bold;
-  border-radius: 12px;
+  font-weight: bolder;
+  border-radius: 16px;
   padding: 18px 8px;
+  border: 3px solid #132236;
+
 }
 .TableLine:hover {
   background-color: #e04102;
   color: #0a0a0a;
+
   font-weight: bold;
-  border-radius: 12px;
+  border-radius: 16px;
   border: 4px solid #d3d3d3;
   padding: 18px 8px;
   transform: translateY(4px);
@@ -85,7 +124,7 @@ select-button {
 
 
 .TableCP{
-  background-color: #15143b;
+  background-color: #05ffc1;
   align-self: center;
   text-align: center;
   padding: 8px;
@@ -97,8 +136,8 @@ select-button {
 }
 
 .CalcUI{
-  background-color: #0063f7;
-  border: 8px solid #186ad4;
+  background-color: #ff4c96;
+  border: 8px solid #132236;
   color: #d3d3d3;
   font-weight: bolder;
   border-radius: 20px;
@@ -117,6 +156,14 @@ select-button {
   margin: 4px;
   margin-top: 1px;
   margin-bottom: 1px;
+
+  background-size: cover;
+  background-size: 100% 100%;
+  mask-image: url(./images/bi_11.png);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 99% 99%;
+  mask-clip: url(./images/bi_1i2.png);
 
 }
 
@@ -139,29 +186,42 @@ input[class=CalcIn]:active{
 }
 
 .CalcB{
-  background-color: #fffb02; /* Green */
+  background-color: #00ffb3; /* Green */
   border: none;
   color: rgb(0, 0, 0);
   font-weight: bolder;
   padding: 8px 8px;
   text-align: center;
   border-radius: 6px;
-  border: 2px solid #000000;
+  border: 2px solid #ff0000;
   text-decoration: none;
   display: inline-block;
   font-size: 22px;
   transition-duration: 0.4s;
   margin: 3px;
+
+  background-size: cover;
+  background-size: 98% 98%;
+  mask-image: url(./images/bi_11.png);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 99% 99%;
+  mask-clip: url(./images/bi_1i2.png);
+}
+.ResultTex{
+  font-size: 22px;
+  font-weight: bolder;
+
 }
 .CalcB:hover{
-  background-color: #ff5f02; /* Green */
+  background-color: #fbff09; /* Green */
   border: none;
   color: rgb(0, 0, 0);
   font-weight: bolder;
   padding: 8px 8px;
   text-align: center;
   border-radius: 6px;
-  border: 2px solid #000000;
+  border: 2px solid #ff0000;
   text-decoration: none;
   display: inline-block;
   font-size: 22px;
