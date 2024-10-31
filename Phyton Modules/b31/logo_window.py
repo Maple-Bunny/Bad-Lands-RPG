@@ -15,7 +15,7 @@ class LogoWindow:
 
         # Create a Label to display the logo
         self.logo_label = tk.Label(self.root, image=self.logo_image)
-        self.logo_label.grid(row=0, column=3, rowspan=3, padx=10, pady=10, sticky="nsew")
+        self.logo_label.grid(row=0, column=2, rowspan=2, padx=10, pady=10, sticky="nsew")
 
         # Bind the configure event to resize the logo
         self.root.bind("<Configure>", self.resize_logo)

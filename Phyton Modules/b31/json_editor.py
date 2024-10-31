@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 import json
 
 class JsonEditor:
@@ -8,7 +8,7 @@ class JsonEditor:
 
         # Create a Text widget with a Scrollbar to display and edit JSON
         self.text_frame = tk.Frame(self.root)
-        self.text_frame.grid(row=0, column=0, rowspan=3, padx=10, pady=10, sticky="nsew")
+        self.text_frame.grid(row=0, column=0, rowspan=1, columnspan=2, padx=10, pady=10, sticky="nsew")
         
         self.text_scroll = tk.Scrollbar(self.text_frame)
         self.text_scroll.pack(side=tk.RIGHT, fill=tk.Y)
@@ -19,11 +19,11 @@ class JsonEditor:
 
         # Add Load JSON button
         self.load_button = tk.Button(self.root, text="Carregar JSON", command=self.load_json)
-        self.load_button.grid(row=3, column=0, padx=5, pady=5)
+        self.load_button.grid(row=1, column=0, padx=5, pady=5)
 
         # Add Save JSON button
         self.save_button = tk.Button(self.root, text="Salvar JSON", command=self.save_json)
-        self.save_button.grid(row=3, column=1, padx=5, pady=5)
+        self.save_button.grid(row=1, column=1, padx=5, pady=5)
 
     def load_json(self):
         # Open a file dialog to select a JSON file
