@@ -1,0 +1,16 @@
+{
+	"name": "part.head",
+	"render_type": "bedrock",
+	"hidden_parts": [],
+	"texture": "moreplayermodels:textures/entity/miruko.png",
+	"body_part": "head",
+	"menu": "maple.head",
+	"animation_inherit" : "legs",
+	"preview_rotation": 315,
+	"translate": [0, 12, 0],
+	"scale": [1.0, 1.0, 1.0],
+	"rotate_offset": [0, -12, 0.0],
+	"rotate": [0.0, 0, 0.0],
+	"can_use_player_skin" : true,
+	"author": "Maple"
+}
