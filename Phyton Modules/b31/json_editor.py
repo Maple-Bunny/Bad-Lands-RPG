@@ -22,9 +22,13 @@ class JsonEditor:
         self.load_button = tk.Button(self.root, text="Carregar JSON", command=self.load_json)
         self.load_button.grid(row=1, column=0, padx=5, pady=5)
 
+        # Add Apply JSON button
+        self.apply_button = tk.Button(self.root, text="Aplicar", command=self.apply_json)
+        self.apply_button.grid(row=1, column=1, padx=5, pady=5)
+
         # Add Save JSON button
         self.save_button = tk.Button(self.root, text="Salvar JSON", command=self.save_json)
-        self.save_button.grid(row=1, column=1, padx=5, pady=5)
+        self.save_button.grid(row=1, column=2, padx=5, pady=5)
 
     def set_navigator(self, navigator):
         self.navigator = navigator
@@ -39,6 +43,17 @@ class JsonEditor:
                 self.text_widget.insert(tk.END, json.dumps(json_content, indent=4))
                 if self.navigator:
                     self.navigator.load_json_tree(json_content)
+
+    def apply_json(self):
+        # Apply changes to the JSON navigator
+        try:
+            json_content = self.text_widget.get(1.0, tk.END)
+            json_data = json.loads(json_content)
+            if self.navigator:
+                self.navigator.load_json_tree(json_data)
+            messagebox.showinfo("Sucesso", "Alterações aplicadas com sucesso!")
+        except json.JSONDecodeError:
+            messagebox.showerror("Erro", "Conteúdo JSON inválido!")
 
     def save_json(self):
         # Open a file dialog to save the JSON file
