@@ -23,19 +23,20 @@ class JsonNavigator:
         self.values = []
 
     def load_json_tree(self, data, parent=""):
-        for key, value in data.items():
-            node_id = self.tree.insert(parent, "end", text=key, open=True)
-            if isinstance(value, dict):
-                self.load_json_tree(value, node_id)
-            elif isinstance(value, list):
-                for index, item in enumerate(value):
-                    item_id = self.tree.insert(node_id, "end", text=f"[{index}]", open=True)
-                    if isinstance(item, dict):
-                        self.load_json_tree(item, item_id)
-                    else:
-                        self.tree.insert(item_id, "end", text=str(item), open=True)
-            else:
-                self.tree.insert(node_id, "end", text=str(value), open=True)
+        self.tree.delete(*self.tree.get_children())
+        self._recursive_load(data, parent)
+
+    def _recursive_load(self, data, parent):
+        if isinstance(data, dict):
+            for key, value in data.items():
+                node_id = self.tree.insert(parent, "end", text=key, open=True)
+                self._recursive_load(value, node_id)
+        elif isinstance(data, list):
+            for index, item in enumerate(data):
+                item_id = self.tree.insert(parent, "end", text=f"[{index}]", open=True)
+                self._recursive_load(item, item_id)
+        else:
+            self.tree.insert(parent, "end", text=str(data), open=True)
 
     def on_tree_select(self, event):
         selected_item = self.tree.selection()[0]

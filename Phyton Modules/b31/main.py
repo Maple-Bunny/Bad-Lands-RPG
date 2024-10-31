@@ -5,10 +5,11 @@ from json_navigator import JsonNavigator
 
 def main():
     root = tk.Tk()
-    root.geometry("800x600")
+    root.geometry("1280x720")
     logo_window = LogoWindow(root)
     json_editor = JsonEditor(root)
     json_navigator = JsonNavigator(root)
+    json_editor.set_navigator(json_navigator)  # Link navigator to the editor
     root.mainloop()
 
 if __name__ == "__main__":

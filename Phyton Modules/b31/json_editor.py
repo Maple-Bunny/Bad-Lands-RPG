@@ -5,6 +5,7 @@ import json
 class JsonEditor:
     def __init__(self, root):
         self.root = root
+        self.navigator = None
 
         # Create a Text widget with a Scrollbar to display and edit JSON
         self.text_frame = tk.Frame(self.root)
@@ -25,6 +26,9 @@ class JsonEditor:
         self.save_button = tk.Button(self.root, text="Salvar JSON", command=self.save_json)
         self.save_button.grid(row=1, column=1, padx=5, pady=5)
 
+    def set_navigator(self, navigator):
+        self.navigator = navigator
+
     def load_json(self):
         # Open a file dialog to select a JSON file
         file_path = filedialog.askopenfilename(filetypes=[("JSON files", "*.json")])
@@ -33,6 +37,8 @@ class JsonEditor:
                 json_content = json.load(file)
                 self.text_widget.delete(1.0, tk.END)
                 self.text_widget.insert(tk.END, json.dumps(json_content, indent=4))
+                if self.navigator:
+                    self.navigator.load_json_tree(json_content)
 
     def save_json(self):
         # Open a file dialog to save the JSON file
