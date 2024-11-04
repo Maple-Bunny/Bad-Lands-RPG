@@ -136,7 +136,6 @@ select-button {
 }
 
 .CLX{
-  background-color: #a04cff;
   font-weight: bold;
 }
 .CLX-T{
@@ -166,6 +165,15 @@ select-button {
   border-radius: 8px;
   padding: 16px 32px;
   border: 2px solid #132236;
+}
+.CLX-Ico{
+  height: 128px;
+  max-height: 5%;
+  align-content: center;
+  padding: 1px 8px;
+  border-radius: 8px;
+  border: 2px solid #132236;
+  background-color: #a04cff;
 }
 
 .CalcUI{

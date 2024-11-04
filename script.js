@@ -154,6 +154,11 @@ function Render(_dados,_bancoTipo){
 				td1.className = "CLXLine";
 				tr.appendChild(td1);
 
+				let c_icon = document.createElement('img');
+				c_icon.src="./images/class/"+element.Icon;
+				c_icon.className = "CLX-Ico";
+				tr.appendChild(c_icon);
+
 				let ci1P = document.createElement('p');
 				tr.appendChild(ci1P);
 
