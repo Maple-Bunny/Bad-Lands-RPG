@@ -135,6 +135,39 @@ select-button {
   
 }
 
+.CLX{
+  background-color: #a04cff;
+  font-weight: bold;
+}
+.CLX-T{
+  background-color: #20132e;
+}
+.CLXLine-T{
+  background-color: #4d387c;
+  white-space: pre-line;
+  text-align: left;
+  border-radius: 5px;
+  border: 2px solid #132236;
+  font-size: larger;
+}
+/*.CLXLine-T::after{
+  content: ". "; /* Line break character */
+ /* white-space: pre; /* Preserve the line break */
+/*}*/
+
+.CLX-End{
+  background-color: #deff4c;
+  border-radius: 8px;
+  border: 4px solid #0e0b0b;
+}
+.CLXLine{
+  background-color: #a04cff;
+  font-weight: bolder;
+  border-radius: 8px;
+  padding: 16px 32px;
+  border: 2px solid #132236;
+}
+
 .CalcUI{
   background-color: #ff4c96;
   border: 8px solid #132236;
