@@ -1,4 +1,5 @@
 import {HabilidadeDB, ItensDB, ClassDB, EspeciesDB} from './DataBase.js'
+import {ss, Async_Search} from './modules/searchMod.js'
 const DB_H = HabilidadeDB;
 const DB_I = ItensDB;
 const DB_C = ClassDB;
@@ -14,6 +15,9 @@ const ClassButton = document.getElementById("Bclass");
 const EspeButton = document.getElementById("Besp");
 const VCalcButton = document.getElementById("Bvcalc");
 const PCalcButton = document.getElementById("Bpcalc");
+const SButton = document.getElementById("SearchB");
+const SButtonT = document.getElementById("opcoes");
+const SButtonK = document.getElementById("Sinput");
 
 HabButton.addEventListener("click", () => {
 	console.log("habilidades");
@@ -59,6 +63,18 @@ PCalcButton.addEventListener("click", () => {
 
 	  ClearRender();
 	  calculadoraPsyonRender();
+});
+
+SButton.addEventListener("click", () => {
+	console.log("Pesquisa");
+
+	let a = SButtonT.options[SButtonT.selectedIndex].value;
+	let b = SButtonK.value;
+	ClearRender();
+	console.log(a +" "+b);
+	Async_Search(a,b);
+	//Render(Async_Search(a, b));
+
 });
 
 
@@ -232,6 +248,7 @@ function Render(_dados,_bancoTipo){
 			};
 
 			const elements = document.getElementsByClassName("CLXLine-T");
+			const elementsb = document.getElementsByClassName("CLXLine");
 				
 			Array.from(elements).forEach(function(element) {
 			  //for (let element of elements) {
@@ -239,8 +256,15 @@ function Render(_dados,_bancoTipo){
 				text = text.replace(/\. /g, ".\n");
 				element.textContent = text;
 			});
+
+			Array.from(elementsb).forEach(function(element) {
+				//for (let element of elements) {
+				  let text = element.textContent;
+				  text = text.replace(/\. /g, ".\n");
+				  element.textContent = text;
+			  });
 		}
-		if(_bancoTipo=="especies"){
+		if(_bancoTipo=="especies"||_bancoTipo=="Espécies"){
 			for(let element of _dados){
 				let tr = document.createElement('tr');
 				tr.className = "TableRow";
