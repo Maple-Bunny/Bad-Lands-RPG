@@ -144,20 +144,25 @@ function Render(_dados,_bancoTipo){
 				let tr = document.createElement('trx');
 				tr.className = "CLX";
 
+				
 				let T1 = document.createElement('p');
 				T1.innerText = "Classe";
 				T1.className = "CLX-T";
 				tr.appendChild(T1);
 			
+				let Ctn = document.createElement('container')
+				Ctn.className = "CTN";
 				let td1 = document.createElement('td');
 				td1.textContent = element.Classe;
-				td1.className = "CLXLine";
-				tr.appendChild(td1);
+				td1.className = "CLX-Ico";
+				Ctn.appendChild(td1);
+				
 
 				let c_icon = document.createElement('img');
 				c_icon.src="./images/class/"+element.Icon;
 				c_icon.className = "CLX-Ico";
-				tr.appendChild(c_icon);
+				Ctn.appendChild(c_icon);
+				tr.appendChild(Ctn);
 
 				let ci1P = document.createElement('p');
 				tr.appendChild(ci1P);

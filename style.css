@@ -166,11 +166,21 @@ select-button {
   padding: 16px 32px;
   border: 2px solid #132236;
 }
+.CTN{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+}
 .CLX-Ico{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  max-height: 128px;
+  width: 128px;
   height: 128px;
-  max-height: 5%;
-  align-content: center;
-  padding: 1px 8px;
+  /*padding: 1px 8px;*/
   border-radius: 8px;
   border: 2px solid #132236;
   background-color: #a04cff;
