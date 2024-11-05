@@ -141,36 +141,104 @@ function Render(_dados,_bancoTipo){
 		}
 		if(_bancoTipo=="classes"){
 			for(let element of _dados){
-				let tr = document.createElement('tr');
-				tr.className = "TableRow";
+				let tr = document.createElement('trx');
+				tr.className = "CLX";
+
+				
+				let T1 = document.createElement('p');
+				T1.innerText = "Classe";
+				T1.className = "CLX-T";
+				tr.appendChild(T1);
 			
+				let Ctn = document.createElement('container')
+				Ctn.className = "CTN";
 				let td1 = document.createElement('td');
 				td1.textContent = element.Classe;
-				td1.className = "TableLine";
-				tr.appendChild(td1);
+				td1.className = "CLX-Ico";
+				Ctn.appendChild(td1);
+				
+
+				let c_icon = document.createElement('img');
+				c_icon.src="./images/class/"+element.Icon;
+				c_icon.className = "CLX-Ico";
+				Ctn.appendChild(c_icon);
+				tr.appendChild(Ctn);
+
+				let ci1P = document.createElement('p');
+				tr.appendChild(ci1P);
+
+				let T2 = document.createElement('p');
+				T2.innerText = "Status";
+				T2.className = "CLX-T";
+				tr.appendChild(T2);
 			
 				let td2 = document.createElement('td');
 				td2.textContent = element.Status;
-				td2.className = "TableLine";
+				td2.className = "CLXLine";
 				tr.appendChild(td2);
+
+				let ci2P = document.createElement('p');
+				tr.appendChild(ci2P);
+
+				let T3 = document.createElement('p');
+				T3.innerText = "Descrição";
+				T3.className = "CLX-T";
+				tr.appendChild(T3);
 			
 				let td3 = document.createElement('td');
 				td3.textContent = element.Descrição;
-				td3.className = "TableLine";
+				td3.className = "CLXLine";
 				tr.appendChild(td3);
+
+				let ci3P = document.createElement('p');
+				tr.appendChild(ci3P);
+
+				let T4 = document.createElement('p');
+				T4.innerText = "Itens Iniciais";
+				T4.className = "CLX-T";
+				tr.appendChild(T4);
 		
-				let td4 = document.createElement('td');
+				let td4 = document.createElement('pre');
 				td4.textContent = element.Itens_Iniciais;
-				td4.className = "TableLine";
+				td4.className = "CLXLine-T";
 				tr.appendChild(td4);
-		
-				let td5 = document.createElement('td');
+
+							
+
+				let ci4P = document.createElement('p');
+				tr.appendChild(ci4P);
+
+				let T5 = document.createElement('p');
+				T5.innerText = "Habilidades por nivel";
+				T5.className = "CLX-T";
+				tr.appendChild(T5);
+				
+				//break on dot
+				//let pr = document.createElement('pre');
+				let td5 = document.createElement('pre');
 				td5.textContent = element.Habilidades_por_Nivel;
-				td5.className = "TableLine";
+				td5.className = "CLXLine-T";
 				tr.appendChild(td5);
+				//tr.appendChild(pr);
+
+				let T_End = document.createElement('p');
+				T_End.innerText = "||========================================================================||";
+				T_End.className = "CLX-End";
+				tr.appendChild(T_End);
+
+
 			
 				table.appendChild(tr);
 			};
+
+			const elements = document.getElementsByClassName("CLXLine-T");
+				
+			Array.from(elements).forEach(function(element) {
+			  //for (let element of elements) {
+				let text = element.textContent;
+				text = text.replace(/\. /g, ".\n");
+				element.textContent = text;
+			});
 		}
 		if(_bancoTipo=="especies"){
 			for(let element of _dados){

@@ -1,0 +1,26 @@
+{
+    "array": [
+        {
+            "campo1": "valor1",
+            "campo2": "valor2",
+            "campo3": "valor3"
+        },
+        {
+            "campo1": "valor4",
+            "campo2": "valor5",
+            "campo3": "valor6"
+        }
+    ],
+    "array2": [
+        {
+            "campoA": "valorA",
+            "campoB": "valorB",
+            "campoC": "valorC"
+        },
+        {
+            "campoA": "valorD",
+            "campoB": "valorE",
+            "campoC": "valorF"
+        }
+    ]
+}
