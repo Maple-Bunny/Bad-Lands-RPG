@@ -73,8 +73,14 @@ SButton.addEventListener("click", async () => {
 	let result;
 	ClearRender();
 	console.log(a +" "+b);
-	//result = Async_Search(a,b);
+	result = await Async_Search(a,b);
+	console.log("resultado foi "+result.length+" aqui!")
+	if (result.length > 0){
 	Render(await Async_Search(a,b), ""+a);
+	//Nfound();
+	}else{
+		Nfound();
+	}
 
 });
 
@@ -298,6 +304,17 @@ function Render(_dados,_bancoTipo){
 				table.appendChild(tr);
 			};
 		}
+		if(_bancoTipo=="404"){
+			let emp = document.createElement('p');
+			emp.className = "TableRow";
+			
+			let emp1 = document.createElement('p');
+			emp1.textContent = "404 Não achei!";
+			emp1.className = "TableLine";
+			emp.appendChild(emp1);
+				
+			table.appendChild(emp);
+		}
 
 	} catch (error) {
 		console.log(error);
@@ -313,6 +330,21 @@ function ClearRender(){
 	while(div.firstChild){
 		div.removeChild(div.firstChild);
 	}
+}
+
+function Nfound() {
+	let table = document.getElementById("table");
+	table.className = ("TableCP");
+
+	let calcUI = document.createElement('calcUI');
+	calcUI.className = "404";
+
+	let ci1Text = document.createElement('ci1Text');
+	ci1Text.innerText = "404 Não encontrei!";
+	ci1Text.className = "404";
+	calcUI.appendChild(ci1Text);
+
+	table.appendChild(calcUI);
 }
 
 //Faz o Render da calculadora de vida
