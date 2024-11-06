@@ -27,28 +27,28 @@ HabButton.addEventListener("click", () => {
 
 	  //document.getElementById("table").innerHTML = ""+Render();
 	  ClearRender();
-	  Render(DB_H,"habilidades");
+	  Render(DB_H,"habilidade");
 });
 
 ItemButton.addEventListener("click", () => {
 	console.log("Itens");
 
 	  ClearRender();
-	  Render(DB_I,"itens");
+	  Render(DB_I,"item");
 });
 
 ClassButton.addEventListener("click", () => {
 	console.log("Classes");
 
 	  ClearRender();
-	  Render(DB_C,"classes");
+	  Render(DB_C,"classe");
 });
 
 EspeButton.addEventListener("click", () => {
 	console.log("especies");
 
 	  ClearRender();
-	  Render(DB_E,"especies");
+	  Render(DB_E,"especie");
 });
 
 VCalcButton.addEventListener("click", () => {
@@ -65,15 +65,16 @@ PCalcButton.addEventListener("click", () => {
 	  calculadoraPsyonRender();
 });
 
-SButton.addEventListener("click", () => {
+SButton.addEventListener("click", async () => {
 	console.log("Pesquisa");
 
 	let a = SButtonT.options[SButtonT.selectedIndex].value;
 	let b = SButtonK.value;
+	let result;
 	ClearRender();
 	console.log(a +" "+b);
-	Async_Search(a,b);
-	//Render(Async_Search(a, b));
+	//result = Async_Search(a,b);
+	Render(await Async_Search(a,b), ""+a);
 
 });
 
@@ -89,73 +90,73 @@ function Render(_dados,_bancoTipo){
 
 		//tipos de bancos de dados
 		//habilidades, classes, itens, especies;
-		if(_bancoTipo=="habilidades"){
+		if(_bancoTipo=="habilidade"){
 			for(let element of _dados){
 				let tr = document.createElement('tr');
 				tr.className = "TableRow";
 			
 				let td1 = document.createElement('td');
-				td1.textContent = element.Habilidade;
+				td1.textContent = element.habilidade;
 				td1.className = "TableLine";
 				tr.appendChild(td1);
 			
 				let td2 = document.createElement('td');
-				td2.textContent = element.Custo;
+				td2.textContent = element.custo;
 				td2.className = "TableLine";
 				tr.appendChild(td2);
 			
 				let td3 = document.createElement('td');
-				td3.textContent = element.Descrição;
+				td3.textContent = element.description;
 				td3.className = "TableLine";
 				tr.appendChild(td3);
 		
 				let td4 = document.createElement('td');
-				td4.textContent = element.Formula;
+				td4.textContent = element.form;
 				td4.className = "TableLine";
 				tr.appendChild(td4);
 		
 				let td5 = document.createElement('td');
-				td5.textContent = element.Tipo;
+				td5.textContent = element.tipo;
 				td5.className = "TableLine";
 				tr.appendChild(td5);
 			
 				table.appendChild(tr);
 			};
 		}
-		if(_bancoTipo=="itens"){
+		if(_bancoTipo=="item"){
 			for(let element of _dados){
 				let tr = document.createElement('tr');
 				tr.className = "TableRow";
 			
 				let td1 = document.createElement('td');
-				td1.textContent = element.Item;
+				td1.textContent = element.item;
 				td1.className = "TableLine";
 				tr.appendChild(td1);
 			
 				let td2 = document.createElement('td');
-				td2.textContent = element.Tipo;
+				td2.textContent = element.tipo;
 				td2.className = "TableLine";
 				tr.appendChild(td2);
 			
 				let td3 = document.createElement('td');
-				td3.textContent = element.Preço;
+				td3.textContent = element.custo;
 				td3.className = "TableLine";
 				tr.appendChild(td3);
 		
 				let td4 = document.createElement('td');
-				td4.textContent = element.Atributos;
+				td4.textContent = element.atributos;
 				td4.className = "TableLine";
 				tr.appendChild(td4);
 		
 				let td5 = document.createElement('td');
-				td5.textContent = element.Descrição;
+				td5.textContent = element.description;
 				td5.className = "TableLine";
 				tr.appendChild(td5);
 			
 				table.appendChild(tr);
 			};
 		}
-		if(_bancoTipo=="classes"){
+		if(_bancoTipo=="classe"){
 			for(let element of _dados){
 				let tr = document.createElement('trx');
 				tr.className = "CLX";
@@ -169,13 +170,13 @@ function Render(_dados,_bancoTipo){
 				let Ctn = document.createElement('container')
 				Ctn.className = "CTN";
 				let td1 = document.createElement('td');
-				td1.textContent = element.Classe;
+				td1.textContent = element.classe;
 				td1.className = "CLX-Ico";
 				Ctn.appendChild(td1);
 				
 
 				let c_icon = document.createElement('img');
-				c_icon.src="./images/class/"+element.Icon;
+				c_icon.src="./images/class/"+element.icon;
 				c_icon.className = "CLX-Ico";
 				Ctn.appendChild(c_icon);
 				tr.appendChild(Ctn);
@@ -189,7 +190,7 @@ function Render(_dados,_bancoTipo){
 				tr.appendChild(T2);
 			
 				let td2 = document.createElement('td');
-				td2.textContent = element.Status;
+				td2.textContent = element.status;
 				td2.className = "CLXLine";
 				tr.appendChild(td2);
 
@@ -202,7 +203,7 @@ function Render(_dados,_bancoTipo){
 				tr.appendChild(T3);
 			
 				let td3 = document.createElement('td');
-				td3.textContent = element.Descrição;
+				td3.textContent = element.description;
 				td3.className = "CLXLine";
 				tr.appendChild(td3);
 
@@ -215,7 +216,7 @@ function Render(_dados,_bancoTipo){
 				tr.appendChild(T4);
 		
 				let td4 = document.createElement('pre');
-				td4.textContent = element.Itens_Iniciais;
+				td4.textContent = element.itens_iniciais;
 				td4.className = "CLXLine-T";
 				tr.appendChild(td4);
 
@@ -232,7 +233,7 @@ function Render(_dados,_bancoTipo){
 				//break on dot
 				//let pr = document.createElement('pre');
 				let td5 = document.createElement('pre');
-				td5.textContent = element.Habilidades_por_Nivel;
+				td5.textContent = element.habilidades_por_nivel;
 				td5.className = "CLXLine-T";
 				tr.appendChild(td5);
 				//tr.appendChild(pr);
@@ -264,33 +265,33 @@ function Render(_dados,_bancoTipo){
 				  element.textContent = text;
 			  });
 		}
-		if(_bancoTipo=="especies"||_bancoTipo=="Espécies"){
+		if(_bancoTipo=="especie"){
 			for(let element of _dados){
 				let tr = document.createElement('tr');
 				tr.className = "TableRow";
 			
 				let td1 = document.createElement('td');
-				td1.textContent = element.Espécie;
+				td1.textContent = element.especie;
 				td1.className = "TableLine";
 				tr.appendChild(td1);
 			
 				let td2 = document.createElement('td');
-				td2.textContent = element.Status;
+				td2.textContent = element.status;
 				td2.className = "TableLine";
 				tr.appendChild(td2);
 			
 				let td3 = document.createElement('td');
-				td3.textContent = element.Descrição;
+				td3.textContent = element.description;
 				td3.className = "TableLine";
 				tr.appendChild(td3);
 		
 				let td4 = document.createElement('td');
-				td4.textContent = element.Massa;
+				td4.textContent = element.mass;
 				td4.className = "TableLine";
 				tr.appendChild(td4);
 		
 				let td5 = document.createElement('td');
-				td5.textContent = element.Altura;
+				td5.textContent = element.altura;
 				td5.className = "TableLine";
 				tr.appendChild(td5);
 			
