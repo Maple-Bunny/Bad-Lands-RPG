@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>BadLands RPG</title>
+    <link rel="icon" href="./images/decalion_ico.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -35,8 +36,23 @@
             O que deseja ver?
             <br>
             <img src="./images/SeciEdit.png"></img>
+            <p class="searchBox" id="SBox" name="SBox">
+                <br>
+    
+                <select id="opcoes" name="opcoes" class="SelectButton">
+                    <option value="habilidade">Habilidades</option>
+                    <option value="item">Itens</option>
+                    <option value="classe">Classes</option>
+                    <option value="especie">Espécies</option>
+                    <option value="opcao5">WIP</option>
+                    <option value="opcao6">WIP</option>
+                </select>
+                <input type="text" id="Sinput" placeholder="Digite aqui" class="SelectButton">
+                <button type="button" id="SearchB" name="SearchB" class="SelectButton">Pesquisar</button>
+            </p>
             <table id="table" class="table"></table>
         </p>
+        
     </p>
 
     <!--LINK JQUERY-->

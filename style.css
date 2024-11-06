@@ -75,6 +75,14 @@ select-button {
   font-size: 22px;
  
 }
+
+.searchBox{
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  text-align: center;
+  display: inline-block;
+}
 .Table{
   background-color: #ff4c96;
   border-radius: 15px;
