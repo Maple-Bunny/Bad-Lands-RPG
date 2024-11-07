@@ -1,13 +1,12 @@
-import {HabilidadeDB, ItensDB, ClassDB, EspeciesDB} from './DataBase.js'
-import {ss, Async_Search} from './modules/searchMod.js'
-const DB_H = HabilidadeDB;
-const DB_I = ItensDB;
-const DB_C = ClassDB;
-const DB_E = EspeciesDB;
+import {callData, _patchDB} from './DataBase.js'
+import {Async_Search} from './modules/searchMod.js'
+const DB_H = await callData(_patchDB[0].habilidade);
+const DB_I = await callData(_patchDB[0].item);
 
-function getFullInfo(item) {
-	return [item.Habilidade, item.Custo, item.Descrição, item.Formula, item.Tipo].join(' ');
-}  
+console.log(_patchDB[0].classe);
+console.log( await callData(_patchDB[0].classe));
+const DB_C = await callData(_patchDB[0].classe);
+const DB_E = await callData(_patchDB[0].especie);
 
 const HabButton = document.getElementById("Bhabi");
 const ItemButton = document.getElementById("BItem");
@@ -21,11 +20,7 @@ const SButtonK = document.getElementById("Sinput");
 
 HabButton.addEventListener("click", () => {
 	console.log("habilidades");
-	/*document.getElementById("IPanel").innerHTML = DB_H.map((habilidade) => {
-		return `<li>${ getFullInfo(habilidade) }</li>`;
-	  }).join('');*/
 
-	  //document.getElementById("table").innerHTML = ""+Render();
 	  ClearRender();
 	  Render(DB_H,"habilidade");
 });
@@ -87,10 +82,21 @@ SButton.addEventListener("click", async () => {
 
 
 //Faz o Render da tabela de informações
-function Render(_dados,_bancoTipo){
+function Render(_banco,_bancoTipo){
+	let _dados = _banco;
 	let resultado = "";
 	let table = document.getElementById("table");
 	table.className = ("Table");
+
+	if (Array.isArray(_dados)) {
+		// Código para iterar sobre _dados
+		_dados.forEach(item => {
+			console.log(item);
+		});
+	} else {
+		console.error('_dados não é um array:', _dados);
+	}
+	
 
 	try {
 
