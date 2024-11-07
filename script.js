@@ -107,27 +107,51 @@ function Render(_banco,_bancoTipo){
 				let tr = document.createElement('tr');
 				tr.className = "TableRow";
 			
-				let td1 = document.createElement('td');
+				//Quebra de linha
+				let p1 = document.createElement('p');
+				p1.textContent = "Nome da Habilidade";
+				p1.className = "TableLine-T";
+				tr.appendChild(p1);
+
+				let td1 = document.createElement('text');
 				td1.textContent = element.habilidade;
 				td1.className = "TableLine";
 				tr.appendChild(td1);
+
+				//Quebra de linha
+				let p2 = document.createElement('p');
+				p2.textContent = "Custo da Habilidade";
+				p2.className = "TableLine-T";
+				tr.appendChild(p2);
 			
-				let td2 = document.createElement('td');
+				let td2 = document.createElement('text');
 				td2.textContent = element.custo;
 				td2.className = "TableLine";
 				tr.appendChild(td2);
+
+				//Quebra de linha
+				let p3 = document.createElement('p');
+				p3.textContent = "Custo da Habilidade";
+				p3.className = "TableLine-T";
+				tr.appendChild(p3);
 			
 				let td3 = document.createElement('td');
 				td3.textContent = element.description;
 				td3.className = "TableLine";
 				tr.appendChild(td3);
 		
-				let td4 = document.createElement('td');
+				let td4 = document.createElement('text');
 				td4.textContent = element.form;
 				td4.className = "TableLine";
 				tr.appendChild(td4);
+
+				//Quebra de linha
+				let p4 = document.createElement('p');
+				p4.textContent = "Tipo da Habilidade";
+				p4.className = "TableLine-T";
+				tr.appendChild(p4);
 		
-				let td5 = document.createElement('td');
+				let td5 = document.createElement('texts');
 				td5.textContent = element.tipo;
 				td5.className = "TableLine";
 				tr.appendChild(td5);
