@@ -102,62 +102,84 @@ function Render(_banco,_bancoTipo){
 
 		//tipos de bancos de dados
 		//habilidades, classes, itens, especies;
-		if(_bancoTipo=="habilidade"){
-			for(let element of _dados){
-				let tr = document.createElement('tr');
-				tr.className = "TableRow";
-			
-				//Quebra de linha
+		if (_bancoTipo == "habilidade") {
+			for (let element of _dados) {
+				let tr = document.createElement('tr'); // Cria uma linha da tabela
+				tr.className = "TR-1";
+		
+				// Coluna 1
+				let Col1 = document.createElement('td');
+				Col1.className = "trc-1";
+		
 				let p1 = document.createElement('p');
 				p1.textContent = "Nome da Habilidade";
-				p1.className = "TableLine-T";
-				tr.appendChild(p1);
-
-				let td1 = document.createElement('text');
+				p1.className = "trc-T";
+				Col1.appendChild(p1);
+		
+				let td1 = document.createElement('p');
 				td1.textContent = element.habilidade;
-				td1.className = "TableLine";
-				tr.appendChild(td1);
-
-				//Quebra de linha
+				td1.className = "trc-L";
+				Col1.appendChild(td1);
+		
 				let p2 = document.createElement('p');
 				p2.textContent = "Custo da Habilidade";
-				p2.className = "TableLine-T";
-				tr.appendChild(p2);
-			
-				let td2 = document.createElement('text');
-				td2.textContent = element.custo;
-				td2.className = "TableLine";
-				tr.appendChild(td2);
-
-				//Quebra de linha
-				let p3 = document.createElement('p');
-				p3.textContent = "Custo da Habilidade";
-				p3.className = "TableLine-T";
-				tr.appendChild(p3);
-			
-				let td3 = document.createElement('td');
-				td3.textContent = element.description;
-				td3.className = "TableLine";
-				tr.appendChild(td3);
+				p2.className = "trc-T";
+				Col1.appendChild(p2);
 		
-				let td4 = document.createElement('text');
-				td4.textContent = element.form;
-				td4.className = "TableLine";
-				tr.appendChild(td4);
-
-				//Quebra de linha
+				let td2 = document.createElement('p');
+				td2.textContent = element.custo;
+				td2.className = "trc-L";
+				Col1.appendChild(td2);
+		
+				// Coluna 2
+				/* let Col2 = document.createElement('td');
+				Col2.className = "trc-2"; */
+		
+				let p3 = document.createElement('p');
+				p3.textContent = "Descrição da Habilidade";
+				p3.className = "trc-T";
+				Col1.appendChild(p3);
+		
+				let td3 = document.createElement('p');
+				td3.textContent = element.description;
+				td3.className = "trc-L";
+				Col1.appendChild(td3);
+		
 				let p4 = document.createElement('p');
 				p4.textContent = "Tipo da Habilidade";
-				p4.className = "TableLine-T";
-				tr.appendChild(p4);
+				p4.className = "trc-T";
+				Col1.appendChild(p4);
 		
-				let td5 = document.createElement('texts');
-				td5.textContent = element.tipo;
-				td5.className = "TableLine";
-				tr.appendChild(td5);
-			
+				let td4 = document.createElement('p');
+				td4.textContent = element.tipo;
+				td4.className = "trc-L";
+				Col1.appendChild(td4);
+
+				let T_End = document.createElement('p');
+				T_End.innerText = "||=================||";
+				T_End.className = "CLX-End";
+				Col1.appendChild(T_End);
+		
+				// Adicionando as colunas à linha
+				tr.appendChild(Col1);
+				/* tr.appendChild(Col2); */
+		
+
+
+
+				// Adicionando a linha à tabela
 				table.appendChild(tr);
 			};
+		
+		
+			const elementsb = document.getElementsByClassName("tr-c");
+				
+			Array.from(elementsb).forEach(function(element) {
+			  //for (let element of elements) {
+				let text = element.textContent;
+				text = text.replace(/\. /g, ".\n");
+				element.textContent = text;
+			});
 		}
 		if(_bancoTipo=="item"){
 			for(let element of _dados){
@@ -299,7 +321,8 @@ function Render(_banco,_bancoTipo){
 				  let text = element.textContent;
 				  text = text.replace(/\. /g, ".\n");
 				  element.textContent = text;
-			  });
+			});
+
 		}
 		if(_bancoTipo=="especie"){
 			for(let element of _dados){
