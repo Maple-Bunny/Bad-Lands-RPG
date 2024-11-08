@@ -326,32 +326,74 @@ function Render(_banco,_bancoTipo){
 		}
 		if(_bancoTipo=="especie"){
 			for(let element of _dados){
-				let tr = document.createElement('tr');
-				tr.className = "TableRow";
+				let tr = document.createElement('trx');
+				tr.className = "ELX";
+
+				let T1 = document.createElement('p');
+				T1.innerText = "Espécie";
+				T1.className = "ELX-T";
+				tr.appendChild(T1);
 			
+				let Ctn = document.createElement('container')
+				Ctn.className = "ETN";
 				let td1 = document.createElement('td');
 				td1.textContent = element.especie;
-				td1.className = "TableLine";
+				td1.className = "ELX-Ico";
 				tr.appendChild(td1);
+
+				let e_icon = document.createElement('img');
+				e_icon.src="./images/especie/"+element.icon;
+				e_icon.className = "ELX-Ico";
+				Ctn.appendChild(e_icon);
+				tr.appendChild(Ctn);
+
+				let ci1P = document.createElement('p');
+				tr.appendChild(ci1P);
+
+				let T2 = document.createElement('p');
+				T2.innerText = "Status";
+				T2.className = "ELX-T";
+				tr.appendChild(T2);
 			
 				let td2 = document.createElement('td');
 				td2.textContent = element.status;
-				td2.className = "TableLine";
+				td2.className = "ELXLine";
 				tr.appendChild(td2);
+
+				let ci2P = document.createElement('p');
+				tr.appendChild(ci2P);
+
+				let T3 = document.createElement('p');
+				T3.innerText = "Descrição";
+				T3.className = "CLX-T";
+				tr.appendChild(T3);
 			
 				let td3 = document.createElement('td');
 				td3.textContent = element.description;
-				td3.className = "TableLine";
+				td3.className = "ELXLine";
 				tr.appendChild(td3);
 		
+				let ci3P = document.createElement('p');
+				tr.appendChild(ci3P);
+
+				let T4 = document.createElement('p');
+				T4.innerText = "Massa em kg";
+				T4.className = "ELX-T";
+				tr.appendChild(T4);
+
 				let td4 = document.createElement('td');
 				td4.textContent = element.mass;
-				td4.className = "TableLine";
+				td4.className = "ELXLine";
 				tr.appendChild(td4);
+
+				let T5 = document.createElement('p');
+				T5.innerText = "Altura em cm";
+				T5.className = "ELX-T";
+				tr.appendChild(T5);
 		
 				let td5 = document.createElement('td');
 				td5.textContent = element.altura;
-				td5.className = "TableLine";
+				td5.className = "ELXLine";
 				tr.appendChild(td5);
 			
 				table.appendChild(tr);
