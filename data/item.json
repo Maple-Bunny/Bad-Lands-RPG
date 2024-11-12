@@ -1,156 +1,175 @@
 {
     "data":[
         {
-        "item": "Inicial",
-        "tipo": "Inicial",
-        "custo": "Inicial",
-        "atributos": "Inicial",
-        "description": "Inicial",
-        "blank": ""
+          "item": "Inicial",
+          "tipo": "Inicial",
+          "custo": "Inicial",
+          "atributos": "Inicial",
+          "description": "Inicial",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Item",
-        "tipo": "Tipo",
-        "custo": "Preço",
-        "atributos": "Atributos",
-        "description": "Descrição",
-        "blank": ""
+          "item": "Item",
+          "tipo": "Tipo",
+          "custo": "Preço",
+          "atributos": "Atributos",
+          "description": "Descrição",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Armadura Pesada de Cadete",
-        "tipo": "Armadura",
-        "custo": "$50",
-        "atributos": "[+1 Armadura]",
-        "description": "Armadura Pesada basica feita para novos recrutas.",
-        "blank": ""
+          "item": "Armadura Pesada de Cadete",
+          "tipo": "Armadura",
+          "custo": "$50",
+          "atributos": "[+1 Armadura]",
+          "description": "Armadura Pesada basica feita para novos recrutas.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Armadura Media de Cadete",
-        "tipo": "Armadura",
-        "custo": "$50",
-        "atributos": "[+1 Armadura]",
-        "description": "Armadura basica feita para novos recrutas.",
-        "blank": ""
+          "item": "Armadura Media de Cadete",
+          "tipo": "Armadura",
+          "custo": "$50",
+          "atributos": "[+1 Armadura]",
+          "description": "Armadura basica feita para novos recrutas.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Armadura Leve de Cadete",
-        "tipo": "Armadura",
-        "custo": "$50",
-        "atributos": "[+1 Armadura]",
-        "description": "Armadura Leve basica feita para novos recrutas.",
-        "blank": ""
+          "item": "Armadura Leve de Cadete",
+          "tipo": "Armadura",
+          "custo": "$50",
+          "atributos": "[+1 Armadura]",
+          "description": "Armadura Leve basica feita para novos recrutas.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Escopeta AT-07",
-        "tipo": "Arma",
-        "custo": "$40",
-        "atributos": "[Dano 3d4], [Distância 10 Metros]",
-        "description": "Uma escopeta barata e de facil uso.",
-        "blank": ""
+          "item": "Escopeta AT-07",
+          "tipo": "Arma",
+          "custo": "$40",
+          "atributos": "[Dano 3d4], [Distância 10 Metros]",
+          "description": "Uma escopeta barata e de facil uso.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Pistola B-03",
-        "tipo": "Arma",
-        "custo": "$40",
-        "atributos": "[Dano 1d4 + 1], [Distancia 20 Metros]",
-        "description": "Uma pistola simples e barata.",
-        "blank": ""
+          "item": "Pistola B-03",
+          "tipo": "Arma",
+          "custo": "$40",
+          "atributos": "[Dano 1d4 + 1], [Distancia 20 Metros]",
+          "description": "Uma pistola simples e barata.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Rifle de caça A-02",
-        "tipo": "Arma",
-        "custo": "$60",
-        "atributos": "[Dano 1d10], [Distância 10-30 Metros]",
-        "description": "Antigo rifle de caça criado a 7 decadas atrás.",
-        "blank": ""
+          "item": "Rifle de caça A-02",
+          "tipo": "Arma",
+          "custo": "$60",
+          "atributos": "[Dano 1d10], [Distância 10-30 Metros]",
+          "description": "Antigo rifle de caça criado a 7 decadas atrás.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Faca de Sobrevivência",
-        "tipo": "Faca",
-        "custo": "$15",
-        "atributos": "[Dano 1d4]",
-        "description": "Faca dada a novos recrutas.",
-        "blank": ""
+          "item": "Faca de Sobrevivência",
+          "tipo": "Faca",
+          "custo": "$15",
+          "atributos": "[Dano 1d4]",
+          "description": "Faca dada a novos recrutas.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Espada Curta de Bronze",
-        "tipo": "Espada",
-        "custo": "$25",
-        "atributos": "[Dano 1d6]",
-        "description": "Espada Leve feita de bronze.",
-        "blank": ""
+          "item": "Espada Curta de Bronze",
+          "tipo": "Espada",
+          "custo": "$25",
+          "atributos": "[Dano 1d6]",
+          "description": "Espada Leve feita de bronze.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Espada Longa de bronze",
-        "tipo": "Espada",
-        "custo": "$25",
-        "atributos": "[Dano 1d10]",
-        "description": "Espada Comum feita de bronze.",
-        "blank": ""
+          "item": "Espada Longa de bronze",
+          "tipo": "Espada",
+          "custo": "$25",
+          "atributos": "[Dano 1d10]",
+          "description": "Espada Comum feita de bronze.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Canhão de ombro TX-MK1",
-        "tipo": "Canhão",
-        "custo": "$65",
-        "atributos": "[Dano 1d8], [Distância 15 Metros], [Recarga 2 turnos]",
-        "description": "Canhão de ombro barato mas pouco potente.",
-        "blank": ""
+          "item": "Canhão de ombro TX-MK1",
+          "tipo": "Canhão",
+          "custo": "$65",
+          "atributos": "[Dano 1d8], [Distância 15 Metros], [Recarga 2 turnos]",
+          "description": "Canhão de ombro barato mas pouco potente.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Analgésicos",
-        "tipo": "Recuperação",
-        "custo": "$5",
-        "atributos": "[Recupera 2d4 de Vida se ingerido]",
-        "description": "Comprimidos usados para aliviar a dor.",
-        "blank": ""
+          "item": "Analgésicos",
+          "tipo": "Recuperação",
+          "custo": "$5",
+          "atributos": "[Recupera 2d4 de Vida se ingerido]",
+          "description": "Comprimidos usados para aliviar a dor.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Granadas de Flash",
-        "tipo": "Arremessável",
-        "custo": "$25",
-        "atributos": "[10 Metros de raio], [tempo de cegueira 1d4 turnos]",
-        "description": "Cega temporariamente quem está próximo 10 Metros de raio, tempo de cegueira 1d4 turnos.",
-        "blank": ""
+          "item": "Granadas de Flash",
+          "tipo": "Arremessável",
+          "custo": "$25",
+          "atributos": "[10 Metros de raio], [tempo de cegueira 1d4 turnos]",
+          "description": "Cega temporariamente quem está próximo 10 Metros de raio, tempo de cegueira 1d4 turnos.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Scanner",
-        "tipo": "Equipamento",
-        "custo": "$70",
-        "atributos": "[+1 Para rolagens que visão descobrir algo!]",
-        "description": "Usado para escanear objetos e entidades.",
-        "blank": ""
+          "item": "Scanner",
+          "tipo": "Equipamento",
+          "custo": "$70",
+          "atributos": "[+1 Para rolagens que visão descobrir algo!]",
+          "description": "Usado para escanear objetos e entidades.",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "-------------------------------------------",
-        "tipo": "-------------------",
-        "custo": "-----------------------",
-        "atributos": "--------------------------------------------------------------",
-        "description": "-----------------------------------------------------------------",
-        "blank": ""
+          "item": "-------------------------------------------",
+          "tipo": "-------------------",
+          "custo": "-----------------------",
+          "atributos": "--------------------------------------------------------------",
+          "description": "-----------------------------------------------------------------",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Materiais",
-        "tipo": "Materiais",
-        "custo": "Materiais",
-        "atributos": "Materiais",
-        "description": "Materiais",
-        "blank": ""
+          "item": "Materiais",
+          "tipo": "Materiais",
+          "custo": "Materiais",
+          "atributos": "Materiais",
+          "description": "Materiais",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Itens  Comuns",
-        "tipo": "Tipo",
-        "custo": "Preço",
-        "atributos": "Atributos",
-        "description": "Descrição",
-        "blank": ""
+          "item": "Itens  Comuns",
+          "tipo": "Tipo",
+          "custo": "Preço",
+          "atributos": "Atributos",
+          "description": "Descrição",
+          "icon": "template.png",
+          "blank": ""
         },
         {
-        "item": "Bandagens",
-        "tipo": "Recuperação",
-        "custo": "$1",
-        "atributos": "[Recupera 1d4 de Vida]",
-        "description": "Bandagens usadas para tapar ferimentos.",
-        "blank": ""
+          "item": "Bandagens",
+          "tipo": "Recuperação",
+          "custo": "$1",
+          "atributos": "[Recupera 1d4 de Vida]",
+          "description": "Bandagens usadas para tapar ferimentos.",
+          "icon": "template.png",
+          "blank": ""
         }
-    ]
+      ]
 }

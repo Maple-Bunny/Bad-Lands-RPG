@@ -1,36 +1,40 @@
 {
     "data":[
         {
-        "especie": "Lâmias",
-        "status": "[+1 de Inteligência.]\n[+2 de sorte.]\n[12 de Esquiva.]\n",
-        "description": "Uma Lâmia possui um torso humanoide e cauda de serpente, orelhas pontudas e geralmente são ótimas nadadoras.\nPodem ter de 80 a 160 kg, acima disso são considerados obesos e recebem desvantagem em tudo que envolve esforço físico e abaixo disso ficam doentes com facilidade.",
-        "mass": "80kg - 160kg",
-        "altura": "150cm - 500cm",
-        "blank": ""
+          "especie": "Lâmias",
+          "icon": "snake.png",
+          "status": "[+1 de Inteligência.]\n[+2 de sorte.]\n[12 de Esquiva.]",
+          "description": "Uma Lâmia possui um torso humanoide e cauda de serpente, orelhas pontudas e geralmente são ótimas nadadoras.\nPodem ter de 80 a 160 kg, acima disso são considerados obesos e recebem desvantagem em tudo que envolve esforço físico e abaixo disso ficam doentes com facilidade.",
+          "mass": "80kg - 160kg",
+          "altura": "150cm - 500cm",
+          "blank": ""
         },
         {
-        "especie": "Elfos",
-        "status": "[+1 de Inteligência.]\n[+2 de Destreza.]\n[15 de Esquiva.]",
-        "description": "Elfos possuem diversas variações e tamanhos mas geralmente tem mais de 170 cm de altura, magros e ágeis.\nPodem ter de 55 a 80 kg, acima disso são considerados obesos e recebem desvantagem em tudo que envolve esforço físico e abaixo disso ficam doentes com facilidade.",
-        "mass": "55kg - 80kg",
-        "altura": "Media de 170cm",
-        "blank": ""
+          "especie": "Elfos",
+          "icon": "elf.png",
+          "status": "[+1 de Inteligência.]\n[+2 de Destreza.]\n[15 de Esquiva.]",
+          "description": "Elfos possuem diversas variações e tamanhos mas geralmente tem mais de 170 cm de altura, magros e ágeis.\nPodem ter de 55 a 80 kg, acima disso são considerados obesos e recebem desvantagem em tudo que envolve esforço físico e abaixo disso ficam doentes com facilidade.",
+          "mass": "55kg - 80kg",
+          "altura": "Media de 170cm",
+          "blank": ""
         },
         {
-        "especie": "Assarianos",
-        "status": "[+2 de Inteligência.]\n[+1 de Força.]\n[14 de Esquiva.]\n",
-        "description": "Assarianos possuem pele azulada e cabelo de tentáculos geralmente são fêmeas ou intersexo e têm entre 135 a 180 cm de altura, são bem fortes além de possuírem um ótimo controle de Psyon.\nPodem ter de 38 a 80 kg, acima disso são considerados obesos e recebem desvantagem em tudo que envolve esforço físico e abaixo disso ficam doentes com facilidade.",
-        "mass": "38kg - 80kg",
-        "altura": "135cm - 180cm",
-        "blank": ""
+          "especie": "Assarianos",
+          "icon": "octopus.png",
+          "status": "[+2 de Inteligência.]\n[+1 de Força.]\n[14 de Esquiva.]",
+          "description": "Assarianos possuem pele azulada e cabelo de tentáculos geralmente são fêmeas ou intersexo e têm entre 135 a 180 cm de altura, são bem fortes além de possuírem um ótimo controle de Psyon.\nPodem ter de 38 a 80 kg, acima disso são considerados obesos e recebem desvantagem em tudo que envolve esforço físico e abaixo disso ficam doentes com facilidade.",
+          "mass": "38kg - 80kg",
+          "altura": "135cm - 180cm",
+          "blank": ""
         },
         {
-        "especie": "Beliais",
-        "status": "[+2 de Resistência]\n[+1 de Força.]\n[13 de Esquiva.]",
-        "description": "\nBeliais possuem pele coberta por pêlos são fortes e resistentes na maioria das vezes possuem entre 110 a 200 cm de altura, são bem variados em cores e tamanhos.\nPodem ter de 24 a 120 kg, acima disso são considerados obesos e recebem desvantagem em tudo que envolve esforço físico e abaixo disso ficam doentes com facilidade.",
-        "mass": "24kg - 120kg",
-        "altura": "110cm - 200cm",
-        "blank": ""
+          "especie": "Beliais",
+          "icon": "fur.png",
+          "status": "[+2 de Resistência]\n[+1 de Força.]\n[13 de Esquiva.]",
+          "description": "Beliais possuem pele coberta por pêlos são fortes e resistentes na maioria das vezes possuem entre 110 a 200 cm de altura, são bem variados em cores e tamanhos.\nPodem ter de 24 a 120 kg, acima disso são considerados obesos e recebem desvantagem em tudo que envolve esforço físico e abaixo disso ficam doentes com facilidade.",
+          "mass": "24kg - 120kg",
+          "altura": "110cm - 200cm",
+          "blank": ""
         }
-    ]
+      ]
 }

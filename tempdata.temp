@@ -1,7 +1,91 @@
-{
-		Classe: "⚔️Classe⚔️",
-		Status: "📊Status📊",
-		Descrição: "📖Descrição📖",
-		Itens_Iniciais: "🎒Itens Iniciais🎒",
-		Habilidades_por_Nivel: "🪄Habilidades por Nivel🪄"
-	},
+if(_bancoTipo=="classe"){
+			for(let element of _dados){
+				let tr = document.createElement('trx');
+				tr.className = "CLX";
+
+				
+				let T1 = document.createElement('p');
+				T1.innerText = "Classe";
+				T1.className = "CLX-T";
+				tr.appendChild(T1);
+			
+				let Ctn = document.createElement('container')
+				Ctn.className = "CTN";
+				let td1 = document.createElement('td');
+				td1.textContent = element.classe;
+				td1.className = "CLX-Ico";
+				Ctn.appendChild(td1);
+				
+
+				let c_icon = document.createElement('img');
+				c_icon.src="./images/class/"+element.icon;
+				c_icon.className = "CLX-Ico";
+				Ctn.appendChild(c_icon);
+				tr.appendChild(Ctn);
+
+				let ci1P = document.createElement('p');
+				tr.appendChild(ci1P);
+
+				let T2 = document.createElement('p');
+				T2.innerText = "Status";
+				T2.className = "CLX-T";
+				tr.appendChild(T2);
+			
+				let td2 = document.createElement('td');
+				td2.textContent = element.status;
+				td2.className = "CLXLine";
+				tr.appendChild(td2);
+
+				let ci2P = document.createElement('p');
+				tr.appendChild(ci2P);
+
+				let T3 = document.createElement('p');
+				T3.innerText = "Descrição";
+				T3.className = "CLX-T";
+				tr.appendChild(T3);
+			
+				let td3 = document.createElement('td');
+				td3.textContent = element.description;
+				td3.className = "CLXLine";
+				tr.appendChild(td3);
+
+				let ci3P = document.createElement('p');
+				tr.appendChild(ci3P);
+
+				let T4 = document.createElement('p');
+				T4.innerText = "Itens Iniciais";
+				T4.className = "CLX-T";
+				tr.appendChild(T4);
+		
+				let td4 = document.createElement('pre');
+				td4.textContent = element.itens_iniciais;
+				td4.className = "CLXLine-T";
+				tr.appendChild(td4);
+
+							
+
+				let ci4P = document.createElement('p');
+				tr.appendChild(ci4P);
+
+				let T5 = document.createElement('p');
+				T5.innerText = "Habilidades por nivel";
+				T5.className = "CLX-T";
+				tr.appendChild(T5);
+				
+				//break on dot
+				//let pr = document.createElement('pre');
+				let td5 = document.createElement('pre');
+				td5.textContent = element.habilidades_por_nivel;
+				td5.className = "CLXLine-T";
+				tr.appendChild(td5);
+				//tr.appendChild(pr);
+
+				let T_End = document.createElement('p');
+				T_End.innerText = "||========================================================================||";
+				T_End.className = "CLX-End";
+				tr.appendChild(T_End);
+
+
+			
+				table.appendChild(tr);
+			};
