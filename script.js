@@ -78,7 +78,25 @@ SButton.addEventListener("click", async () => {
 	}
 
 });
+ScreenAdapt();
+window.addEventListener('resize', ScreenAdapt);
 
+
+
+function ScreenAdapt(){
+	const viewport = document.getElementById('viewport');
+	const screenWidth = window.innerWidth;
+	const screenHeight = window.innerHeight;
+	let initialScale = 1;
+
+	if(screenWidth < 565){
+		initialScale=screenWidth / 565;
+	} else if(screenHeight < 720){
+		initialScale = screenHeight / 720;
+	}
+
+	viewport.setAttribute('content', `width=device-width, initial-scale=${initialScale}`);
+}
 
 
 //Faz o Render da tabela de informações

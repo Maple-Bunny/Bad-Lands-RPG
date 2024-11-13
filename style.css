@@ -4,6 +4,12 @@ body {
   background-color: #252525;
   color: #ffffff;
   font-weight: bolder;
+  width: 100%;
+  min-width: 540px;
+
+  display: flex;
+  flex-direction: column;
+  
 }
 
 select-button {
