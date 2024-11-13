@@ -1,6 +1,4 @@
-import {HabilidadeDB, ItensDB, ClassDB, EspeciesDB} from '../DataBase.js'
-const ss = 30;
-
+import {callData, _patchDB} from '../DataBase.js'
 
 async function Async_Search(_bancoTipo, _chave){
     
@@ -10,11 +8,17 @@ try {
     let c;
 
     let listade_de_bancos = {
-        "habilidade": HabilidadeDB,
-        "item":ItensDB,
-        "classe":ClassDB,
-        "especie":EspeciesDB
+        "habilidade": [],
+        "item": [],
+        "classe": [],
+        "especie": []
     };
+
+    listade_de_bancos.habilidade=await callData(_patchDB[0].habilidade);
+    listade_de_bancos.item=await callData(_patchDB[0].item);
+    listade_de_bancos.classe=await callData(_patchDB[0].classe);
+    listade_de_bancos.especie=await callData(_patchDB[0].especie);
+    console.log(listade_de_bancos);
 
     if (listade_de_bancos.hasOwnProperty(_bancoTipo)) {
         a = listade_de_bancos[_bancoTipo];
@@ -38,10 +42,6 @@ async function search_f(_banco, _chaveArray, _valor) {
     let valor_minus = removerAcentos(_valor.toLowerCase()); // Converter o valor pesquisado para minúsculas e remover acentos
     
     for (let index = 0; index < _banco.length; index++) {
-/*        if(_banco[index][_chaveArray] && _banco[index][_chaveArray].toLowerCase().includes(valor_minus)) {
-            result.push(_banco[index]);
-       } */
-
         if(_banco[index][_chaveArray]){
             let texto_normalizado = removerAcentos(_banco[index][_chaveArray].toLowerCase());
             if(texto_normalizado.includes(valor_minus)){
@@ -59,4 +59,4 @@ function removerAcentos(_text) {
 
 
 
-export{ss, Async_Search};
+export{Async_Search};

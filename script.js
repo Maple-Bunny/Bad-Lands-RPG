@@ -1,13 +1,12 @@
-import {HabilidadeDB, ItensDB, ClassDB, EspeciesDB} from './DataBase.js'
-import {ss, Async_Search} from './modules/searchMod.js'
-const DB_H = HabilidadeDB;
-const DB_I = ItensDB;
-const DB_C = ClassDB;
-const DB_E = EspeciesDB;
+import {callData, _patchDB} from './DataBase.js'
+import {Async_Search} from './modules/searchMod.js'
+const DB_H = await callData(_patchDB[0].habilidade);
+const DB_I = await callData(_patchDB[0].item);
 
-function getFullInfo(item) {
-	return [item.Habilidade, item.Custo, item.Descrição, item.Formula, item.Tipo].join(' ');
-}  
+console.log(_patchDB[0].classe);
+console.log( await callData(_patchDB[0].classe));
+const DB_C = await callData(_patchDB[0].classe);
+const DB_E = await callData(_patchDB[0].especie);
 
 const HabButton = document.getElementById("Bhabi");
 const ItemButton = document.getElementById("BItem");
@@ -21,11 +20,7 @@ const SButtonK = document.getElementById("Sinput");
 
 HabButton.addEventListener("click", () => {
 	console.log("habilidades");
-	/*document.getElementById("IPanel").innerHTML = DB_H.map((habilidade) => {
-		return `<li>${ getFullInfo(habilidade) }</li>`;
-	  }).join('');*/
 
-	  //document.getElementById("table").innerHTML = ""+Render();
 	  ClearRender();
 	  Render(DB_H,"habilidade");
 });
@@ -83,81 +78,220 @@ SButton.addEventListener("click", async () => {
 	}
 
 });
+ScreenAdapt();
+window.addEventListener('resize', ScreenAdapt);
 
+
+
+function ScreenAdapt(){
+	const viewport = document.getElementById('viewport');
+	const screenWidth = window.innerWidth;
+	const screenHeight = window.innerHeight;
+	let initialScale = 1;
+
+	if(screenWidth < 565){
+		initialScale=screenWidth / 565;
+	} else if(screenHeight < 720){
+		initialScale = screenHeight / 720;
+	}
+
+	viewport.setAttribute('content', `width=device-width, initial-scale=${initialScale}`);
+}
 
 
 //Faz o Render da tabela de informações
-function Render(_dados,_bancoTipo){
+function Render(_banco,_bancoTipo){
+	let _dados = _banco;
 	let resultado = "";
 	let table = document.getElementById("table");
 	table.className = ("Table");
+
+	if (Array.isArray(_dados)) {
+		// Código para iterar sobre _dados
+		_dados.forEach(item => {
+			console.log(item);
+		});
+	} else {
+		console.error('_dados não é um array:', _dados);
+	}
+	
 
 	try {
 
 		//tipos de bancos de dados
 		//habilidades, classes, itens, especies;
-		if(_bancoTipo=="habilidade"){
-			for(let element of _dados){
-				let tr = document.createElement('tr');
-				tr.className = "TableRow";
-			
-				let td1 = document.createElement('td');
+		if (_bancoTipo == "habilidade") {
+			for (let element of _dados) {
+				let tr = document.createElement('tr'); // Cria uma linha da tabela
+				tr.className = "TR-1";
+		
+				// Coluna 1
+				let Col1 = document.createElement('td');
+				Col1.className = "trc-1";
+		
+				let p1 = document.createElement('p');
+				p1.textContent = "Nome da Habilidade";
+				p1.className = "trc-T";
+				Col1.appendChild(p1);
+		
+				let td1 = document.createElement('p');
 				td1.textContent = element.habilidade;
-				td1.className = "TableLine";
-				tr.appendChild(td1);
-			
-				let td2 = document.createElement('td');
+				td1.className = "trc-L";
+				Col1.appendChild(td1);
+		
+				let p2 = document.createElement('p');
+				p2.textContent = "Custo da Habilidade";
+				p2.className = "trc-T";
+				Col1.appendChild(p2);
+		
+				let td2 = document.createElement('p');
 				td2.textContent = element.custo;
-				td2.className = "TableLine";
-				tr.appendChild(td2);
-			
-				let td3 = document.createElement('td');
+				td2.className = "trc-L";
+				Col1.appendChild(td2);
+		
+				// Coluna 2
+				/* let Col2 = document.createElement('td');
+				Col2.className = "trc-2"; */
+		
+				let p3 = document.createElement('p');
+				p3.textContent = "Descrição da Habilidade";
+				p3.className = "trc-T";
+				Col1.appendChild(p3);
+		
+				let td3 = document.createElement('p');
 				td3.textContent = element.description;
-				td3.className = "TableLine";
-				tr.appendChild(td3);
+				td3.className = "trc-L";
+				Col1.appendChild(td3);
 		
-				let td4 = document.createElement('td');
-				td4.textContent = element.form;
-				td4.className = "TableLine";
-				tr.appendChild(td4);
+				let p4 = document.createElement('p');
+				p4.textContent = "Tipo da Habilidade";
+				p4.className = "trc-T";
+				Col1.appendChild(p4);
 		
-				let td5 = document.createElement('td');
-				td5.textContent = element.tipo;
-				td5.className = "TableLine";
-				tr.appendChild(td5);
-			
+				let td4 = document.createElement('p');
+				td4.textContent = element.tipo;
+				td4.className = "trc-L";
+				Col1.appendChild(td4);
+
+				/* let T_End = document.createElement('p');
+				T_End.innerText = "||=================||";
+				T_End.className = "CLX-End";
+				Col1.appendChild(T_End); */
+		
+				// Adicionando as colunas à linha
+				tr.appendChild(Col1);
+				/* tr.appendChild(Col2); */
+		
+
+
+
+				// Adicionando a linha à tabela
 				table.appendChild(tr);
 			};
+		
+		
+			const elementsb = document.getElementsByClassName("tr-c");
+				
+			Array.from(elementsb).forEach(function(element) {
+			  //for (let element of elements) {
+				let text = element.textContent;
+				text = text.replace(/\. /g, ".\n");
+				element.textContent = text;
+			});
 		}
 		if(_bancoTipo=="item"){
 			for(let element of _dados){
-				let tr = document.createElement('tr');
-				tr.className = "TableRow";
+				let tr = document.createElement('trx');
+				tr.className = "CLX";
+
+				let CtnT = document.createElement('td')
+				CtnT.className = "CTNT";
+
+				
+				let T1 = document.createElement('p');
+				T1.innerText = "Item";
+				T1.className = "CLX-T";
+				CtnT.appendChild(T1);
 			
+				//conteiner
+				let Ctn = document.createElement('container')
+				Ctn.className = "CTN";
 				let td1 = document.createElement('td');
 				td1.textContent = element.item;
-				td1.className = "TableLine";
-				tr.appendChild(td1);
+				td1.className = "CLX-Ico";
+				Ctn.appendChild(td1);
+				
+
+				let c_icon = document.createElement('img');
+				c_icon.src="./images/itens/"+element.icon;
+				c_icon.className = "CLX-Ico";
+				Ctn.appendChild(c_icon);
+				CtnT.appendChild(Ctn);
+
+				let ci1P = document.createElement('p');
+				CtnT.appendChild(ci1P);
+
+				
+				let T2 = document.createElement('p');
+				T2.innerText = "Tipo de Item";
+				T2.className = "CLX-T";
+				CtnT.appendChild(T2);
 			
-				let td2 = document.createElement('td');
+				let td2 = document.createElement('p');
 				td2.textContent = element.tipo;
-				td2.className = "TableLine";
-				tr.appendChild(td2);
+				td2.className = "CLXLine";
+				CtnT.appendChild(td2);
+
+				let ci2P = document.createElement('p');
+				CtnT.appendChild(ci2P);
+
+				let T3 = document.createElement('p');
+				T3.innerText = "Custo / Preço";
+				T3.className = "CLX-T";
+				CtnT.appendChild(T3);
 			
-				let td3 = document.createElement('td');
+				let td3 = document.createElement('p');
 				td3.textContent = element.custo;
-				td3.className = "TableLine";
-				tr.appendChild(td3);
+				td3.className = "CLXLine";
+				CtnT.appendChild(td3);
+
+				let ci3P = document.createElement('p');
+				CtnT.appendChild(ci3P);
+
+				let T4 = document.createElement('p');
+				T4.innerText = "Atributos do Item";
+				T4.className = "CLX-T";
+				CtnT.appendChild(T4);
 		
-				let td4 = document.createElement('td');
+				let td4 = document.createElement('pre');
 				td4.textContent = element.atributos;
-				td4.className = "TableLine";
-				tr.appendChild(td4);
-		
-				let td5 = document.createElement('td');
+				td4.className = "CLXLine";
+				CtnT.appendChild(td4);
+
+							
+
+				let ci4P = document.createElement('p');
+				CtnT.appendChild(ci4P);
+
+				let T5 = document.createElement('p');
+				T5.innerText = "Descrição do Item";
+				T5.className = "CLX-T";
+				CtnT.appendChild(T5);
+				
+				//break on dot
+				//let pr = document.createElement('pre');
+				let td5 = document.createElement('pre');
 				td5.textContent = element.description;
-				td5.className = "TableLine";
-				tr.appendChild(td5);
+				td5.className = "CLXLine";
+				CtnT.appendChild(td5);
+				//tr.appendChild(pr);
+
+				let T_End = document.createElement('p');
+				T_End.innerText = "||========================================================================||";
+				T_End.className = "CLX-End";
+				CtnT.appendChild(T_End);
+
+				tr.appendChild(CtnT);
 			
 				table.appendChild(tr);
 			};
@@ -167,12 +301,16 @@ function Render(_dados,_bancoTipo){
 				let tr = document.createElement('trx');
 				tr.className = "CLX";
 
+				let CtnT = document.createElement('div')
+				CtnT.className = "CTNT";
+
 				
 				let T1 = document.createElement('p');
 				T1.innerText = "Classe";
 				T1.className = "CLX-T";
-				tr.appendChild(T1);
+				CtnT.appendChild(T1);
 			
+				//conteiner
 				let Ctn = document.createElement('container')
 				Ctn.className = "CTN";
 				let td1 = document.createElement('td');
@@ -185,71 +323,72 @@ function Render(_dados,_bancoTipo){
 				c_icon.src="./images/class/"+element.icon;
 				c_icon.className = "CLX-Ico";
 				Ctn.appendChild(c_icon);
-				tr.appendChild(Ctn);
+				CtnT.appendChild(Ctn);
 
 				let ci1P = document.createElement('p');
-				tr.appendChild(ci1P);
+				CtnT.appendChild(ci1P);
 
+				
 				let T2 = document.createElement('p');
 				T2.innerText = "Status";
 				T2.className = "CLX-T";
-				tr.appendChild(T2);
+				CtnT.appendChild(T2);
 			
-				let td2 = document.createElement('td');
+				let td2 = document.createElement('p');
 				td2.textContent = element.status;
 				td2.className = "CLXLine";
-				tr.appendChild(td2);
+				CtnT.appendChild(td2);
 
 				let ci2P = document.createElement('p');
-				tr.appendChild(ci2P);
+				CtnT.appendChild(ci2P);
 
 				let T3 = document.createElement('p');
 				T3.innerText = "Descrição";
 				T3.className = "CLX-T";
-				tr.appendChild(T3);
+				CtnT.appendChild(T3);
 			
 				let td3 = document.createElement('td');
 				td3.textContent = element.description;
 				td3.className = "CLXLine";
-				tr.appendChild(td3);
+				CtnT.appendChild(td3);
 
 				let ci3P = document.createElement('p');
-				tr.appendChild(ci3P);
+				CtnT.appendChild(ci3P);
 
 				let T4 = document.createElement('p');
 				T4.innerText = "Itens Iniciais";
 				T4.className = "CLX-T";
-				tr.appendChild(T4);
+				CtnT.appendChild(T4);
 		
 				let td4 = document.createElement('pre');
 				td4.textContent = element.itens_iniciais;
 				td4.className = "CLXLine-T";
-				tr.appendChild(td4);
+				CtnT.appendChild(td4);
 
 							
 
 				let ci4P = document.createElement('p');
-				tr.appendChild(ci4P);
+				CtnT.appendChild(ci4P);
 
 				let T5 = document.createElement('p');
 				T5.innerText = "Habilidades por nivel";
 				T5.className = "CLX-T";
-				tr.appendChild(T5);
+				CtnT.appendChild(T5);
 				
 				//break on dot
 				//let pr = document.createElement('pre');
 				let td5 = document.createElement('pre');
 				td5.textContent = element.habilidades_por_nivel;
 				td5.className = "CLXLine-T";
-				tr.appendChild(td5);
+				CtnT.appendChild(td5);
 				//tr.appendChild(pr);
 
 				let T_End = document.createElement('p');
 				T_End.innerText = "||========================================================================||";
 				T_End.className = "CLX-End";
-				tr.appendChild(T_End);
+				CtnT.appendChild(T_End);
 
-
+				tr.appendChild(CtnT);
 			
 				table.appendChild(tr);
 			};
@@ -269,38 +408,95 @@ function Render(_dados,_bancoTipo){
 				  let text = element.textContent;
 				  text = text.replace(/\. /g, ".\n");
 				  element.textContent = text;
-			  });
+			});
+
 		}
 		if(_bancoTipo=="especie"){
 			for(let element of _dados){
-				let tr = document.createElement('tr');
-				tr.className = "TableRow";
+				let tr = document.createElement('trx');
+				tr.className = "ELX";
+
+				//conteiner
+				let CtnT = document.createElement('div')
+				CtnT.className = "CTNT";
+
+				let T1 = document.createElement('p');
+				T1.innerText = "Espécie";
+				T1.className = "ELX-T";
+				CtnT.appendChild(T1);
 			
+				//conteiner
+				let Ctn = document.createElement('container')
+				Ctn.className = "ETN";
 				let td1 = document.createElement('td');
 				td1.textContent = element.especie;
-				td1.className = "TableLine";
-				tr.appendChild(td1);
+				td1.className = "ELX-Ico";
+				Ctn.appendChild(td1);
+
+				let e_icon = document.createElement('img');
+				e_icon.src="./images/especie/"+element.icon;
+				e_icon.className = "ELX-Ico";
+				Ctn.appendChild(e_icon);
+				CtnT.appendChild(Ctn);
+
+				let ci1P = document.createElement('p');
+				CtnT.appendChild(ci1P);
+
+				let T2 = document.createElement('p');
+				T2.innerText = "Status";
+				T2.className = "ELX-T";
+				CtnT.appendChild(T2);
 			
 				let td2 = document.createElement('td');
 				td2.textContent = element.status;
-				td2.className = "TableLine";
-				tr.appendChild(td2);
+				td2.className = "ELXLine";
+				CtnT.appendChild(td2);
+
+				let ci2P = document.createElement('p');
+				CtnT.appendChild(ci2P);
+
+				let T3 = document.createElement('p');
+				T3.innerText = "Descrição";
+				T3.className = "CLX-T";
+				CtnT.appendChild(T3);
 			
 				let td3 = document.createElement('td');
 				td3.textContent = element.description;
-				td3.className = "TableLine";
-				tr.appendChild(td3);
+				td3.className = "ELXLine-E";
+				CtnT.appendChild(td3);
 		
+				let ci3P = document.createElement('p');
+				CtnT.appendChild(ci3P);
+
+				let T4 = document.createElement('p');
+				T4.innerText = "Massa em kg";
+				T4.className = "ELX-T";
+				CtnT.appendChild(T4);
+
 				let td4 = document.createElement('td');
 				td4.textContent = element.mass;
-				td4.className = "TableLine";
-				tr.appendChild(td4);
+				td4.className = "ELXLine";
+				CtnT.appendChild(td4);
+
+				let T5 = document.createElement('p');
+				T5.innerText = "Altura em cm";
+				T5.className = "ELX-T";
+				CtnT.appendChild(T5);
 		
 				let td5 = document.createElement('td');
 				td5.textContent = element.altura;
-				td5.className = "TableLine";
-				tr.appendChild(td5);
+				td5.className = "ELXLine";
+				CtnT.appendChild(td5);
 			
+				
+
+				/* let T_End = document.createElement('p');
+				T_End.innerText = "||===========================================================================================||";
+				T_End.className = "ELX-End";
+				CtnT.appendChild(T_End); */
+
+				tr.appendChild(CtnT);
+
 				table.appendChild(tr);
 			};
 		}
