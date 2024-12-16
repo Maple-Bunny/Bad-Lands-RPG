@@ -164,14 +164,26 @@ function Render(_banco,_bancoTipo){
 				Col1.appendChild(td3);
 		
 				let p4 = document.createElement('p');
-				p4.textContent = "Tipo da Habilidade";
+				p4.textContent = "Formula da Habilidade";
 				p4.className = "trc-T";
 				Col1.appendChild(p4);
+
+				
 		
 				let td4 = document.createElement('p');
-				td4.textContent = element.tipo;
+				td4.textContent = element.form;
 				td4.className = "trc-L";
 				Col1.appendChild(td4);
+
+				let p5 = document.createElement('p');
+				p5.textContent = "Tipo da Habilidade";
+				p5.className = "trc-T";
+				Col1.appendChild(p5);
+		
+				let td5 = document.createElement('p');
+				td5.textContent = element.tipo;
+				td5.className = "trc-L";
+				Col1.appendChild(td5);
 
 				/* let T_End = document.createElement('p');
 				T_End.innerText = "||=================||";
@@ -180,6 +192,7 @@ function Render(_banco,_bancoTipo){
 		
 				// Adicionando as colunas à linha
 				tr.appendChild(Col1);
+				//tr.appendChild(Col2);
 				/* tr.appendChild(Col2); */
 		
 

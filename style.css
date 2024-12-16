@@ -105,6 +105,7 @@ select-button {
   background-color: #58a1b9;
   background: linear-gradient(to Top, #31eee4, #00ffbf), no-repeat center;
 
+
 }
 
 .TR-1{
@@ -114,6 +115,7 @@ select-button {
 
   width: 100%;
   padding: 6, 8px;
+
   
 
 }
@@ -133,7 +135,9 @@ select-button {
 
   background-blend-mode: multiply;
   
-  width: 90%;
+  width: 60%;
+  min-width: 800px;
+  max-width: 60%;
 }
 .trc-1:hover {
   background: linear-gradient(to Top, #32f82b, #21ffe1), url('./images/C_UI6.png'), no-repeat center;
@@ -144,7 +148,9 @@ select-button {
 
   background-blend-mode: multiply;
   
-  width: 90%;
+  width: 60%;
+  min-width: 800px;
+  max-width: 60%;
 }
 
 .trc-T{
